@@ -1,0 +1,23 @@
+.title_area {
+    height: 50px;
+    background-color: #B3B3B3;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.title_area h2 {
+    margin: auto 0;
+}
+.title_area .info {
+    position: absolute;
+    top: 10px;
+    right: 50%;
+    margin-right: -400px;
+}
+.infoLabel{
+    background: black;
+    color: white;
+    padding: 20px;
+}

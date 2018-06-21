@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import './Jsoneditor.css';
-
+import TitleArea from './TitleArea'
 class Jsoneditor extends Component {
   render() {
     return (
-      <div className="App">
+      <div>
+        <TitleArea />
       </div>
     );
   }
