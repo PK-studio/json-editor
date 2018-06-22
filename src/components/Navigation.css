@@ -1,0 +1,12 @@
+.navigation {
+    height: 60px;
+    width: 100%;
+    background-color: #DADADA;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.navigation .nav_el{
+    margin: 11px 0;
+    border-radius: 10px;
+}

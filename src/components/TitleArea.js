@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './TitleArea.css';
-import iconBackground from './imgs/info-icon.png';
+import iconBackground from '../imgs/info-icon.png';
 
 const iconStyle = {
     display: "block",
@@ -14,7 +14,7 @@ class TitleArea extends Component {
     constructor(props){
         super(props)
         this.state = {
-            showLabel: false
+            labelValue: false
         }
         this.showLabel = this.showLabel.bind(this);
         this.hideLabel = this.hideLabel.bind(this);
@@ -32,7 +32,7 @@ class TitleArea extends Component {
                             onMouseOut={this.hideLabel}
                         ></span>
                     </a>
-                    <Label value={this.state.showLabel}/>
+                    <Label labelValue={this.state.labelValue}/>
                 </div>               
             </div>
         );
@@ -40,26 +40,22 @@ class TitleArea extends Component {
 
     showLabel(event){
         event.preventDefault();
-        this.setState({showLabel: true})
+        this.setState({labelValue: true})
     }
 
     hideLabel(event){
         event.preventDefault();
-        this.setState({showLabel: false})
+        this.setState({labelValue: false})
     }
 };
 
 class Label extends Component{
-    constructor(props){
-        super(props)
-    }
     render(){
-        console.log(this.props.value)
-        if(this.props.value == false){
+        if(this.props.labelValue === false){
             return null
         }
         return(
-            <span className="infoLabel">INFO</span>
+            <span className="infoLabel">Info</span>
         )
     }
 }
