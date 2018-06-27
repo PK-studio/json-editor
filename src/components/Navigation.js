@@ -9,49 +9,44 @@ class Navigation extends Component {
             data: null,
             jsonFile: null
         };
-        this.handleChange = this.handleChange.bind(this);
         this.loadData = this.loadData.bind(this);
-        this.fileInput = React.createRef();
+        this.uploadFile = this.uploadFile.bind(this);
     };
 
+    uploadFile(event){
+        let file = event.target.files[0];
+        let fileReader; 
+        fileReader = new FileReader();
+        fileReader.onloadend = (e) => {
+            let loadContnet = fileReader.result;
+            this.setState({data: loadContnet});
+        };
+        fileReader.readAsText(file);
+    }
+
+    loadData(){
+        console.log(this.state.data);
+    }
+
     render(){
-        console.log(this.state.jsonFile)
         return(
             <div className="navigation">
-                <form>
+                <form className="nav_el">
                   <label>
                     <input 
                         type="file"
                         accept=".json" 
-                        onChange={ (e) => {this.handleChange(e.target.files[0].mozFullPath)} }
+                        onChange={this.uploadFile}
                     />
                   </label>
-                  <button 
-                      className="nav_el" 
-                      onClick={this.loadData}
-                  >upload file</button>
                 </form>
+                <button 
+                    className="nav_el" 
+                    onClick={this.loadData}
+                >upload file</button>
             </div>
         );
     };
-
-    handleChange(chosenFile){
-        this.setState({jsonFile: chosenFile})
-    }
-    loadData(event){
-        event.preventDefault();
-        fetch(this.state.jsonFile)
-            .then(response => {
-                console.log(response)
-                console.log(this.state.jsonFile)
-                response.json()
-            })
-            .then(data => {
-                this.setState({data: data })
-                console.log(this.state.data)
-        })
-            .catch(err => console.error(this.props.url, err.toString()))
-    }
 };
 
 export default Navigation;
