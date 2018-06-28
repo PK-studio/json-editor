@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
 import './Navigation.css';
-// import jsonSrc from '../content/test.json';
 
 class Navigation extends Component {
     constructor(props){
         super(props);
         this.state = {
-            data: null,
-            jsonFile: null
+            originalData: null,
         };
         this.loadData = this.loadData.bind(this);
         this.uploadFile = this.uploadFile.bind(this);
     };
 
+    // componentDidMount(){};
+    
+    // componentWillUnMount(){};
+
     uploadFile(event){
         let file = event.target.files[0];
         let fileReader; 
         fileReader = new FileReader();
-        fileReader.onloadend = (e) => {
-            let loadContnet = fileReader.result;
-            this.setState({data: loadContnet});
-        };
         fileReader.readAsText(file);
+        fileReader.onloadend = (e) => {
+            let fileContnet = fileReader.result;
+            this.setState({originalData: fileContnet});
+        };
     }
 
     loadData(){
-        console.log(this.state.data);
+        let dataObj = new Object();
+        dataObj.oldContent = this.state.originalData;
+        this.props.updater(dataObj)
     }
 
     render(){
@@ -43,7 +47,7 @@ class Navigation extends Component {
                 <button 
                     className="nav_el" 
                     onClick={this.loadData}
-                >upload file</button>
+                >upload file data</button>
             </div>
         );
     };

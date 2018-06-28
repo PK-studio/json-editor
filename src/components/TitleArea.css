@@ -15,6 +15,10 @@
     top: 10px;
     right: 50%;
     margin-right: -200px;
+    opacity: 0.75;
+}
+.title_area .info:hover {
+    opacity: 1;
 }
 .infoLabel{
     background: black;

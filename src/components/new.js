@@ -5,6 +5,10 @@ class New extends Component {
         super(props)
     };
 
+    componentDidMount(){};
+
+    componentWillUnMount(){};
+
     render(){
         return(
             <div></div>
