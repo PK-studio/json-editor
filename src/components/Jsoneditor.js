@@ -30,8 +30,8 @@ class Jsoneditor extends Component {
     return (
       <div>
         <TitleArea />
-        <Navigation updater={this.updateData}/>
-        <TextEditor data={this.state.oldContent} updater={this.updateData}/>
+        <Navigation updater={this.updateData} />
+        <TextEditor data={this.state.oldContent} updater={this.updateData} />
       </div>
     );
   }

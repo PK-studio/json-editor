@@ -23,7 +23,7 @@ class Navigation extends Component {
     }
 
     loadData(){
-        let dataObj = new Object();
+        const dataObj = {};
         dataObj.old = this.state.originalData;
         this.props.updater(dataObj)
     }

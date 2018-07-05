@@ -7,6 +7,11 @@ class New extends Component {
 
     getDerivedStateFromProps(){};
 
+    componentWillReceiveProps(nextProps) {
+        // this will be called when it receive props,
+        // Calling this.setState generally doesn’t trigger componentWillReceiveProps
+    }
+
     componentDidMount(){};
 
     render(){
