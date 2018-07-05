@@ -11,10 +11,6 @@ class Navigation extends Component {
         this.uploadFile = this.uploadFile.bind(this);
     };
 
-    // componentDidMount(){};
-    
-    // componentWillUnMount(){};
-
     uploadFile(event){
         let file = event.target.files[0];
         let fileReader; 
@@ -28,7 +24,7 @@ class Navigation extends Component {
 
     loadData(){
         let dataObj = new Object();
-        dataObj.oldContent = this.state.originalData;
+        dataObj.old = this.state.originalData;
         this.props.updater(dataObj)
     }
 

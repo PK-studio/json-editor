@@ -5,15 +5,17 @@ class New extends Component {
         super(props)
     };
 
-    componentDidMount(){};
+    getDerivedStateFromProps(){};
 
-    componentWillUnMount(){};
+    componentDidMount(){};
 
     render(){
         return(
             <div></div>
         );
     };
+
+    componentWillUnMount(){};
 };
 
 export default New;
