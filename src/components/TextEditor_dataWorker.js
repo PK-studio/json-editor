@@ -1,8 +1,8 @@
 import settings from './TextEditor_settings';
 
-function dataWorker(dataToWorkOn){
+function dataWorker(jsonFile){
         let dataDepo = [];
-        LoopObject("", dataToWorkOn);
+        LoopObject("", jsonFile);
         
         function LoopObject (key, objToLoop){
             for (let property in objToLoop) {

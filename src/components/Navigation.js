@@ -17,7 +17,7 @@ class Navigation extends Component {
         fileReader = new FileReader();
         fileReader.readAsText(file);
         fileReader.onloadend = (e) => {
-            let fileContnet = fileReader.result;
+            let fileContnet = JSON.parse(fileReader.result);
             this.setState({originalData: fileContnet});
         };
     }
