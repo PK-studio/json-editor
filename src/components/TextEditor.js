@@ -25,7 +25,7 @@ class TextEditor extends Component {
 
     render(){
         if(!this.state.processedJSON){
-            console.log("Data is empty, choose json file to start work on it");
+            alert("Data is empty, load JSON file");
             return null;
         }
         return(

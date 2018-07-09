@@ -38,10 +38,10 @@ const tags = [
         },
         {
             start: "<img",
-            end: " />",
+            end: " />"
         }
 ];
-const checkhtml = [/<\p>/g, /<\h\d>/g];
+const checkhtml = [/<p>/g, /<h\d>/g];
 
 
 
