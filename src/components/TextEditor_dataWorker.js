@@ -22,8 +22,8 @@ function dataWorker(jsonFile){
                 let newObject = {};
                 let filterObj = filter.pullOutIcons(currentObj)
                 newObject.key = referance;
-                newObject.value = currentObj; //filterObj
-                newObject.orginal = currentObj; //filterObj
+                newObject.value = filterObj;
+                newObject.orginal = filterObj;
                 dataDepo.push(newObject);
             }
         }

@@ -46,20 +46,14 @@ function filterConstructor (){
                 function tagExist(){
                     return tag_start_index !== -1 || tag_end_position !== -1
                 }
-                function catchError(){
-                    if(tag_start_index !== -1 && tag_end_position === -1){
-                        console.log("start Tag: ", tag_start);
-                        console.log("missing Tag: ", tag_end);
-                        console.log(newContent);
-                        throw new Error("End of tag is missing in above contnet!");
-                    };
-                    return tag_start_index !== -1 && tag_end_position === -1;           
+                function tagMatched(){
+                    return tag_start_index !== -1 && tag_end_position !== -1;
                 }
-                if(tagExist() && !catchError()){
-                    console.log("tagExist, no error")
-                    // storeTag(newContent, tag_start_index, tag_end_index)
-                    // newContent = rebuildContent(newContent, tag_start_index, tag_end_index)
-                    // searchInString() //look for further tags
+                if(tagExist() && tagMatched()){
+                    storeTag(newContent, tag_start_index, tag_end_index)
+                    newContent = rebuildContent(newContent, tag_start_index, tag_end_index)
+                    // searchInString() //look for further tags !Error in async function
+                    // console.log(tagsStorage)
                 }
             }
         }
@@ -86,7 +80,7 @@ function filterConstructor (){
             let part2 = getBackATag()
             let part3 = newContent.substring(parameter2);
             newContent = part1.concat(part2).concat(part3);
-            matchIndicators() //look for further indicators
+            // matchIndicators() //look for further indicators !Error in async function
 
             function getBackATag(){
                 let tagNum = newContent.substring(parameter1, parameter2).replace(/\[/m, "").replace(/\]/m, "").split("_")[1];
@@ -127,5 +121,4 @@ function filterConstructor (){
 }
 
 const filter = new filterConstructor();
-
 export default filter;

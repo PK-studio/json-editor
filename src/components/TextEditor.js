@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import dataWorker from './TextEditor_dataWorker';
+import './TextEditor.css';
+import eyeIconBackground from '../imgs/eye.png';
+
+const eyeIconStyle = {
+    backgroundImage: "url("+eyeIconBackground+")",
+}
 
 class TextEditor extends Component {
     constructor(props){
@@ -17,9 +23,9 @@ class TextEditor extends Component {
 
     rowsToRender(arrayOfRows){
         if(!arrayOfRows) return null;
-        let listOfRows = arrayOfRows.map((row, index) =>
-            <Rows key={index} dataToDisplay={row} />
-        );
+        let listOfRows = arrayOfRows.map((row, index) =>{
+            return (<Rows key={index} dataToDisplay={row} />)
+        });
         return listOfRows;
     }
 
@@ -44,7 +50,11 @@ class Rows extends Component {
     render(){
         console.log(this.props.dataToDisplay)
         return(
-            <div></div>
+            <div className="TextEditor_row">
+                <div className="left"><span style={eyeIconStyle} className="eyeIcon"></span></div>
+                <div className="mid">{this.props.dataToDisplay.orginal}</div>
+                <div className="right">{this.props.dataToDisplay.value}</div>
+            </div>
         )
     }
 }

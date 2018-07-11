@@ -38,7 +38,11 @@ const tags = [
         },
         {
             start: "<img",
-            end: " />"
+            end: " />",
+        },
+        {
+            start: "<img",
+            end: "/>",
         }
 ];
 const checkhtml = [/<p>/g, /<h\d>/g];

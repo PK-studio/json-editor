@@ -1,0 +1,30 @@
+.TextEditor_row{
+    display: flex;
+    flex-direction: row;
+    max-width: 1280px;
+    margin: auto;
+    padding: 4px 0;
+}
+.TextEditor_row:nth-child(even){
+    background-color: #DADADA;
+}
+.TextEditor_row .left{
+    width: 30px;
+}
+.TextEditor_row .mid{
+    width: calc((100% - 30px)/2);
+}
+.TextEditor_row .right{
+    width: calc((100% - 30px)/2);
+}
+.eyeIcon{
+    content: "";
+    opacity: 1;
+    width: 100%;
+    max-width: 51px;
+    height: 16px;
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+}

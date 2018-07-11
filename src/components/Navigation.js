@@ -33,17 +33,10 @@ class Navigation extends Component {
             <div className="navigation">
                 <form className="nav_el">
                   <label>
-                    <input 
-                        type="file"
-                        accept=".json" 
-                        onChange={this.uploadFile}
-                    />
+                    <input type="file" accept=".json" onChange={this.uploadFile} />
                   </label>
                 </form>
-                <button 
-                    className="nav_el" 
-                    onClick={this.loadData}
-                >upload file data</button>
+                <button className="nav_el" onClick={this.loadData}>upload file data</button>
             </div>
         );
     };
