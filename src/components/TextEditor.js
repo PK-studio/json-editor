@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 import dataWorker from './TextEditor_dataWorker';
 import './TextEditor.css';
-import eyeIconBackground from '../imgs/eye.png';
+import eyeIconBackground_black from '../imgs/eye.png';
+import eyeIconBackground_orange from '../imgs/eye-orange.png';
+import editIcon from '../imgs/edit.png';
 
-const eyeIconStyle = {
-    backgroundImage: "url("+eyeIconBackground+")",
+const eyeIconStyle_black = {
+    backgroundImage: "url("+eyeIconBackground_black+")"
+}
+const eyeIconStyle_orange = {
+    backgroundImage: "url("+eyeIconBackground_orange+")"
+}
+const editIconStyle = {
+    backgroundImage: "url("+editIcon+")"
+}
+const referencesColor = {
+    backgroundColor: "#a9abef"
 }
 
 class TextEditor extends Component {
@@ -45,15 +56,48 @@ class TextEditor extends Component {
 class Rows extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            showRef: false
+        };
+        this.toggleRef = this.toggleRef.bind(this);
     }
-
+    toggleRef(event){
+        event.preventDefoult;
+        this.setState({showRef: !this.state.showRef});
+    }
+    chooseIcon(){
+        if(!this.state.showRef){
+            return eyeIconStyle_black;
+        }else{
+            return eyeIconStyle_orange;
+        }
+    }
+    toggleContent(){
+        if(!this.state.showRef){
+            return <div dangerouslySetInnerHTML={{__html: this.props.dataToDisplay.orginal}}></div>;
+        }else{
+            return <div><p className="clearFormatting">{this.props.dataToDisplay.key}</p></div>;
+        };
+    }
+    colorReferencesRows(){
+        if(this.props.dataToDisplay.key.indexOf("ref") !== -1){
+            return referencesColor;
+        };
+        return null
+    }
+    switchOnEditing(){
+        if(this.props.dataToDisplay.key.indexOf("ref") !== -1){
+            return null;
+        };
+        return <span style={editIconStyle} className="icon"></span>;
+    }
     render(){
-        console.log(this.props.dataToDisplay)
         return(
-            <div className="TextEditor_row">
-                <div className="left"><span style={eyeIconStyle} className="eyeIcon"></span></div>
-                <div className="mid">{this.props.dataToDisplay.orginal}</div>
-                <div className="right">{this.props.dataToDisplay.value}</div>
+            <div className="TextEditor_row" style={this.colorReferencesRows()}>
+                <div className="first" onClick={this.toggleRef}><span style={this.chooseIcon()} className="icon"></span></div>
+                <div className="second">{this.toggleContent()}</div>
+                <div className="third" dangerouslySetInnerHTML={{__html: this.props.dataToDisplay.value}}></div>
+                <div className="fourth">{this.switchOnEditing()}</div>
             </div>
         )
     }
