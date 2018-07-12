@@ -63,7 +63,9 @@ class Rows extends Component {
     }
     toggleRef(event){
         event.preventDefoult;
-        this.setState({showRef: !this.state.showRef});
+        this.setState(prevState => ({
+            showRef: !prevState.showRef
+        }));
     }
     chooseIcon(){
         if(!this.state.showRef){

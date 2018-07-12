@@ -20,7 +20,7 @@ function dataWorker(jsonFile){
         if(typeof currentObj === 'string'){
             if(!ignoreThis(currentObj) && !skip(currentObj) && !itsEmpty(currentObj)){
                 let newObject = {};
-                let filterObj = filter.pullOutIcons(currentObj)
+                let filterObj = filter.pullOutIcons(currentObj);
                 newObject.key = referance;
                 newObject.value = filterObj;
                 newObject.orginal = filterObj;

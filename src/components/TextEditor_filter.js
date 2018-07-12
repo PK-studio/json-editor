@@ -11,16 +11,13 @@ function filterConstructor (){
         let part1 = orginalString.substring(0, parameter1);
         let part2 = "[iconIsHere_" + getIndicatorNum()  + "]";
         let part3 = orginalString.substring(parameter2);
-        let newString = part1.concat(part2).concat(part3);
+        let newString = part1.concat([part2, part3]);
         return newString;
     }
     function getIndicatorNum(){
         let iNum = tagsStorage.length - 1;
         switch (true){
             case (iNum < 10):
-                iNum = "00" + iNum;
-                break;
-            case (iNum < 100):
                 iNum = "0" + iNum;
                 break;
             default:
@@ -30,33 +27,90 @@ function filterConstructor (){
     }
     this.pullOutIcons = function(injectedString){
         let newContent = injectedString;
-        function matchTagPatterns(){
-            let tag_start, tag_end, tag_offset;
-            for(let i=0; i < settings.tags.length; i++){
-                tag_start = settings.tags[i].start
-                tag_end = settings.tags[i].end
-                tag_offset = settings.tags[i].end.length
-                searchInString()
-            }
-            function searchInString(){
-                let tag_start_index = newContent.indexOf(tag_start);
-                let tag_end_position = newContent.indexOf(tag_end);
-                let tag_end_index = Number(tag_end_position) + Number(tag_offset);
-                
-                function tagExist(){
-                    return tag_start_index !== -1 || tag_end_position !== -1
-                }
-                function tagMatched(){
-                    return tag_start_index !== -1 && tag_end_position !== -1;
-                }
-                if(tagExist() && tagMatched()){
-                    storeTag(newContent, tag_start_index, tag_end_index)
-                    newContent = rebuildContent(newContent, tag_start_index, tag_end_index)
-                    // searchInString() //look for further tags !Error in async function
-                    // console.log(tagsStorage)
-                }
+        // let loopAgain = false;
+        async function matchTagPatterns() {
+            for (let pairedTag of settings.tags){
+                let searchTagsInContnet = (pairedTag) => {
+                    let tag_start_index = newContent.indexOf(pairedTag.start);
+                    let tag_end_position = newContent.indexOf(pairedTag.end);
+                    let tag_end_index = Number(tag_end_position) + Number(pairedTag.end.length);
+                    function tagExist(){
+                        let value = false;
+                        if(tag_start_index !== -1 || tag_end_position !== -1){
+                            value=true;
+                        }
+                        // debugger;
+                        return value;
+                    }
+                    function tagMatched(){
+                        let value = false;
+                        if(tag_start_index !== -1 && tag_end_position !== -1){
+                            value = true;
+                        }
+                        // debugger;
+                        return value; 
+                    }
+                    if(tagExist() && tagMatched()){
+                        storeTag(newContent, tag_start_index, tag_end_index);
+                        newContent = rebuildContent(newContent, tag_start_index, tag_end_index);
+                        // loopAgain = true;;
+                        searchTagsInContnet(pairedTag);
+                        debugger;
+                    }
+                };
+                searchTagsInContnet(pairedTag);
             }
         }
+        // matchTagPatterns = () => {
+        //     // let contentChanged_loopAgain = false;
+        //     async function loopingContent() {
+        //         settings.tags.forEach((pairedTag) => {
+        //             let tag_start_index = newContent.indexOf(pairedTag.start);
+        //             let tag_end_position = newContent.indexOf(pairedTag.end);
+        //             let tag_end_index = Number(tag_end_position) + Number(pairedTag.end.length);
+        //             function tagExist(){
+        //                 return tag_start_index !== -1 || tag_end_position !== -1
+        //             }
+        //             function tagMatched(){
+        //                 return tag_start_index !== -1 && tag_end_position !== -1;
+        //             }
+        //             if(tagExist() && tagMatched()){
+        //                 storeTag(newContent, tag_start_index, tag_end_index);
+        //                 // contentChanged_loopAgain = true;
+        //                 newContent = rebuildContent(newContent, tag_start_index, tag_end_index);
+        //             }
+        //             return Promise.resolve();
+        //         });   
+        //     }
+        // }
+            //=================================================
+            // for(let i=0; i < settings.tags.length; i++){
+            //     let tag_start = settings.tags[i].start
+            //     let tag_end = settings.tags[i].end
+            //     let tag_offset = settings.tags[i].end.length
+
+            //     let tag_start_index = newContent.indexOf(tag_start);
+            //     let tag_end_position = newContent.indexOf(tag_end);
+            //     let tag_end_index = Number(tag_end_position) + Number(tag_offset);
+                
+            //     function tagExist(){
+            //         return tag_start_index !== -1 || tag_end_position !== -1
+            //     }
+            //     function tagMatched(){
+            //         return tag_start_index !== -1 && tag_end_position !== -1;
+            //     }
+            //     if(tagExist() && tagMatched()){
+            //         storeTag(newContent, tag_start_index, tag_end_index);
+            //         newContent = rebuildContent(newContent, tag_start_index, tag_end_index);
+            //         contentChanged_loopAgain = true;
+            //     }else{
+            //         contentChanged_loopAgain = false;
+            //     }
+            // }
+            // if(contentChanged_loopAgain){
+            //     matchTagPatterns();
+            // }
+        // }
         matchTagPatterns();
         return newContent
     }
@@ -66,8 +120,8 @@ function filterConstructor (){
             matchIndicators()
         }
         function matchIndicators(){
-            let indicatorPatern = "[iconIsHere_";   //regex:  /\[indicator_\d*\]/g
-            let indicatorLength = 15;
+            let indicatorPatern = "[iconIsHere_";
+            let indicatorLength = 15; //[iconIsHere_01]
             let indicator_start_index = newContent.indexOf(indicatorPatern);
             let indicator_end_index = Number(indicator_start_index) + Number(indicatorLength);
             
