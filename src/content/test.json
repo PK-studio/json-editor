@@ -1,5 +1,5 @@
 {
-	"title": "Management Excellence Program",
+	"title": "FATCA, AEI, and QI eLearning",
 	"debug": {
 		"easyMode": false,
 		"messages": false,
@@ -8,7 +8,8 @@
 	},
 	"loading": {
 		"text": "The WBT is loading.",
-		"copyright": "Copyright &copy; CREDIT SUISSE GROUP AG and/or its affiliates. All rights reserved. 1997 - "
+		"copyright": "Copyright &copy; CREDIT SUISSE GROUP AG and/or its affiliates. All rights reserved. 1997 - ",
+		"lms": "Connecting to the learning platform..."
 	},
 	"resume": {
 		"resumeTitle": "Welcome back",
@@ -26,7 +27,7 @@
 		"exitText": "Do you really want to quit the program?",
 		"exitQuit": "Quit program",
 		"exitReturn": "Return to program",
-		"developedBy": "This web-based training was created by Unicorn Training - version 1.2 - 180418<br/>Contact: <a href='mailto:helpdesk.elearning@credit-suisse.com'>eLearning Helpdesk</a>"
+		"developedBy": "This web-based training was created by Unicorn Training - version 1.0 - 02/05/18<br/>Contact: <a href='mailto:helpdesk.elearning@credit-suisse.com'>eLearning Helpdesk</a>"
 	},
 	"strings": {
 		"of": "of",
@@ -42,63 +43,94 @@
 	},
 	"feedback": {
 		"feedback": "feedback",
-		"correct": "You have been awarded a star for getting the answer right first time!",
-		"correctNotFirsAttempt": "That's right. However, you needed to get the answer right first time to earn a star.",
+		"correct": "That is correct.",
+		"correctNotFirsAttempt": "That's right.",
 		"incorrect": {
 			"single": "The correct answer is highlighted.",
 			"multi": "The correct answers are highlighted.",
 			"select": "The correct answers are shown.",
-			"empty": "Sorry"			
+			"empty": ""
 		}
 	},
 	"prompt": {
-		"single": "Choose the correct option, and then select Submit.",
-		"multi": "Choose the correct options, and then select Submit.",
-		"select": "Select an option for each dropdown list."	
+		"single": "Select the correct answer, and then Submit.",
+		"multi": "Select the correct answers, and then Submit.",
+		"select": "Choose the correct option for each statement using the dropdown, and then select Submit."
 	},
-	"switchOffTopNav": {
-		"screens": ["0.0", "0.1"],
-		"instructionText" : "Skip pre-test and start training"
+	"pdf": {
+		"name": "Name",
+		"id": "ID",
+		"data": "Date",
+		"title": "Congratulations",
+		"text": "You have now reached the end of this course"
+	},
+	"switchOffBottomNavForTopic": [
+		"Welcome",
+		"Dashboard"
+	],
+	"changeNavType": {
+		"screens": [
+			"0.0",
+			"0.1"
+		],
+		"instructionText": "Skip pretest and start training"
 	},
 	"hideNavigations": {
-		"mobileOnly": ["instruction", "character-pullquote","dashboard", "question", "video-player"],
-		"allDevices": ["welcome-page"]
+		"mobileOnly": [
+			"character-pullquote",
+			"dashboard",
+			"question",
+			"video-player"
+		],
+		"allDevices": [
+			"welcome-page"
+		]
 	},
 	"menu": {
 		"type": "home",
-		"ref": "0.1"
-    },
+		"ref": "0.0"
+	},
 	"topics": [
-        {
-			"title": "Welcome",
-            "keycolor": "sapphire",
-			"rules": ["no-prev"],
-			"unlocks": [1],
-			"screens": [
-				{
-                    "ref": "0.0",
-					"type": "welcome-page",
-                    "title": "Welcome",
-                    "text": "<p>This course for the Management Excellence Program will assess your knowledge and application of effective leadership. First complete the Positive Leadership topic to gain access to the other topics. <b>You must complete all six topics to finish the training.</b></p><p>Stars will be awarded based on your performance – earn at least 12 to access the QuizCom app.</p>",
-                    "buttonLeft": "Start",
-                    "buttonRight": "Start Pre-Test"
-                }
-            ]
-        },		
 		{
-			"title": "dashboard",
-			"keycolor": "sapphire",
+			"title": "Welcome",
+			"keycolor": "dark-sapphire",
 			"forceUnlock": true,
-			"unlocks": [2],
-            "rules": ["no-prev"],
+			"rules": [
+				"no-prev"
+			],
 			"screens": [
 				{
 					"ref": "0.1",
+					"type": "welcome-page",
+					"title": "Welcome to this FATCA, AEI, and QI eLearning",
+					"text": "<p>Credit Suisse applies the highest standards in adhering to regulatory requirements. In the context of the bank’s zero tolerance approach to tax evasion, it is critical that you are familiar with your responsibilities under the Foreign Account Tax Compliance Act (FATCA), the Automatic Exchange of Information (AEI), and the Qualified Intermediary regime (QI).</p><p>This course equips you to understand the general requirements of these regimes and your obligations as Credit Suisse personnel.</p> <p><strong>You must complete all five topics to finish the training.</strong></p>",
+					"buttonLeft": "Start Training"
+				}
+			]
+		},
+		{
+			"title": "Dashboard",
+			"keycolor": "dark-sapphire",
+			"forceUnlock": true,
+			"rules": [
+				"no-prev"
+			],
+			"unlocks": [
+				2
+			],
+			"screens": [
+				{
+					"ref": "0.0",
 					"type": "dashboard",
-					"starsToPass":	12,
+					"title": "FATCA, AEI, and QI eLearning",
+					"dashImage": "media/images/screens/dashboard.jpg",
+					"greyAreaHeight": "35rem",
 					"texts": [
 						{
-							"unlockAt": [1]
+							"text": "<p>An introduction to client tax reporting regimes and why they are relevant to Credit Suisse.</p><p><strong>You must complete all topics to complete this training.</strong></p><p><b>Links marked <img src='media/images/ui/link-icon.png' style='width: 1rem;height: 1rem;display: inline-block;' /> are not accessible from personal computers and mobile devices.</b></p>",
+							"unlockAt": [
+								1
+							]
 						}
 					],
 					"background": {
@@ -107,768 +139,515 @@
 					"popups": [
 						{
 							"displayStudentData": true,
-							"title": "Congratulations",
-							"content": "<p>You have now reached the end of this course with a total of <b><span id='stars'>[# Stars]</span></b> star(s). In order to access the QuizCom app and enter into the prize competition:</p><p><ol><li>Visit the Apple App Store (iOS) or the Google Play store (Android).</li><li>Search for 'QuizCom' by Amuzo Games, download and install the app</li><li>Launch the app and enter the following code: <b>04M03E18P</b></li></ol><strong>You may close your browser window to exit the eLearning.</strong></p>",
-							"userData": "User data:",
-							"userID": "ID:",
-							"dayDate": "Date:"
+							"title": "Congratulations! ",
+							"content": "<p>Following this training, you will need to complete your annual certification which requires you to certify that you have not provided any assistance to any client or account holder in the avoidance of FATCA and AEI and that you certify that you have no knowledge of a non-US account (FATCA) and/or a non-reportable account (AEI) held, or beneficially owned by, a specified US Person or a Reportable Person, respectively.</p><p>Finally, you are asked to certify that you have no knowledge of any FATCA/AEI indicia associated with an account that has not been recorded in the bank's systems.</p><p>The <a class='createPDF' href='#'><b>completion PDF</b></a> can be used to show the training was completed.</p><p><strong>You have now reached the end of this course. You may close your browser window or &ndash; if using the Saba Cloud app &ndash; select Done.</strong></p>",
+							"userData": "<b>User data:</b>",
+							"userID": "<b>ID:</b>",
+							"dayDate": "<b>Date:</b>"
+						}
+					],
+					"tiles": [
+						{
+							"refLink": "1.b",
+							"duration": "3 mins",
+							"description": "An introduction to client tax reporting regimes and why they are relevant to Credit Suisse.",
+							"title": "",
+							"type": "tile",
+							"invert": true
 						},
 						{
-							"displayStudentData": true,
-							"title": "Well done",
-							"content": "<p>You have now reached the end of this course with a total of <b><span id='stars'>[# Stars]</span></b> star(s). Unfortunately, you need <b>at least 12 stars</b> to access the QuizCom app and prize competition.</p><p><strong>You may close your browser window to exit the eLearning. Or you can revisit topics to earn missed stars and improve your score.</strong></p> ",
-							"userData": "User data:",
-							"userID": "ID:",
-							"dayDate": "Date:"
+							"refLink": "2.b",
+							"duration": "6 mins",
+							"description": "A look at the documentation requirements that are in effect for FATCA, AEI, and QI and the \"Reason to Know\" principle.",
+							"title": "",
+							"type": "tile",
+							"invert": true
+						},
+						{
+							"refLink": "3.b",
+							"duration": "4 mins",
+							"description": "A look at reporting, withholding and termination considerations.",
+							"title": "",
+							"type": "tile",
+							"invert": true
+						},
+						{
+							"refLink": "4.b",
+							"duration": "2 mins",
+							"description": "A reminder of your key responsibilities.",
+							"title": "",
+							"type": "half",
+							"invert": true
+						},
+						{
+							"refLink": "5.b",
+							"duration": "5 mins",
+							"description": "A short assessment on some of the key areas of FATCA, AEI, and QI.",
+							"title": "",
+							"type": "half",
+							"invert": true
 						}
-					],					
-					"tiles": [						
-						{
-							"refLink": "1.0",
-							"duration": "5 mins",
-							"description": "Considering what makes great leaders and culture.",
-							"image": "ui/cs_logo_small.png",							
-							"title": "",
-							"type": "horizontalMode"
-                        },
-						{
-							"refLink": "2.1",
-							"duration": "5 mins",
-							"description": "Examining interactions with others.",
-							"image": "ui/cs_logo_small.png",							
-							"title": "",
-							"type": "horizontalMode"
-                        },
-						{
-							"refLink": "3.1",
-							"duration": "5 mins",
-							"description": "Focusing on positive aspects.",
-							"image": "ui/cs_logo_small.png",							
-							"title": "",
-							"type": "horizontalMode"
-                        },
-						{
-							"refLink": "4.1",
-							"duration": "5 mins",
-							"description": "Making work more fulfilling. ",
-							"image": "ui/cs_logo_small.png",							
-							"title": "",
-							"type": "horizontalMode"
-                        },
-						{
-							"refLink": "5.1",
-							"duration": "5 mins",
-							"description": "Using language more effectively.",
-							"image": "ui/cs_logo_small.png",							
-							"title": "",
-							"type": "horizontalMode"
-                        },
-						{
-							"refLink": "6.1",
-							"duration": "5 mins",
-							"description": "Implementing strategies successfully.",
-							"image": "ui/cs_logo_small.png",							
-							"title": "",
-							"type": "horizontalMode"
-                        }
-                    ]
+					]
 				}
 			]
 		},
 		{
-			"title": "Positive Leadership",
-			"unlocks": [3,4,5,6,7],
-			"keycolor": "bright-sapphire",
-			"screens": [			
+			"title": "Introduction",
+			"keycolor": "dark-sapphire",
+			"unlocks": [
+				3
+			],
+			"screens": [
 				{
-					"ref": "1.0",
-					"type": "instruction",
-					"title": "Tutorial",
-					"animation": {
-						"duration": "4.5"
-					}
-				},				
+					"ref": "1.b",
+					"type": "banner"
+				},
 				{
 					"ref": "1.1",
-					"type": "character-pullquote",
-					"layout": "right",
-					"title": "Positive Leadership",
-					"text": "<p><b>This course contains audio. Please check your equipment.</b></p><p><b>Use <span class='inline-play'></span> to listen to the introduction.</b></p>",
-					"mobile": "<p></p>",
-					"image": {
-						"src": "screens/1-1.jpg",
-						"size": "100%",
-						"position": "center"
-					},
-					"audio": {
-						"src": "1-1.mp3",
-						"width": "50%"
-					},
-					"captions": [
-						{
-							"content": "<p>Positive leadership emphasizes what elevates individuals and organizations (in addition to what challenges them), what goes right in organizations (in addition to what goes wrong), what is life-giving (in addition to what is problematic or life-depleting), what is experienced as good (in addition to what is objectionable), what is extraordinary (in addition to what is merely effective), and what is inspiring (in addition to what is difficult or arduous).</p>"
-						}
-					]		
-				},               
+					"type": "video-player",
+					"text": "<p><b>Select <span class='inline-play'></span> to view the introductory learning nugget.</b></p>",
+					"video": {
+						"src": "1-1.mp4",
+						"poster": "1-1-1.jpg",
+						"cues": [
+							{
+								"text": "You’ve probably heard of large corporations and individuals being involved in tax evasion, and of governments wanting to focus their attention on this problem.",
+								"fallbackImg": "screens/1-1-2.jpg",
+								"startTime": 6.0,
+								"endTime": 14.0
+							},
+							{
+								"text": "And that’s exactly what they’re doing…",
+								"fallbackImg": "screens/1-1-3.jpg",
+								"startTime": 14.0,
+								"endTime": 17.0
+							},
+							{
+								"text": "The tax reporting landscape is evolving under a number of regulatory regimes intended to provide greater transparency including:",
+								"fallbackImg": "screens/1-1-4.jpg",
+								"startTime": 17.0,
+								"endTime": 26.0
+							},
+							{
+								"text": "the US Foreign Account Tax Compliance Act, that you will know as FATCA",
+								"fallbackImg": "screens/1-1-5.jpg",
+								"startTime": 26.0,
+								"endTime": 31.0
+							},
+							{
+								"text": "the Automatic Exchange of Information, or AEI",
+								"fallbackImg": "screens/1-1-6.jpg",
+								"startTime": 31.0,
+								"endTime": 36.0
+							},
+							{
+								"text": "and the Qualified Intermediary regime, also known as QI.",
+								"fallbackImg": "screens/1-1-7.jpg",
+								"startTime": 36.0,
+								"endTime": 40.0
+							},
+							{
+								"text": "This training is designed to help you understand how these regimes impact your role, what your responsibilities are and what you need to do to make sure you comply with our policies.",
+								"fallbackImg": "screens/1-1-8.jpg",
+								"startTime": 40.0,
+								"endTime": 52.0
+							}
+						]
+					}
+				},
 				{
 					"ref": "1.2",
-					"type": "case-study",
-					"title": "Old associates, new challenges",
-					"text": "Assessment unlocs this topic",
-					"pages": [
+					"type": "click-show",
+					"title": "FATCA, AEI, and QI",
+					"text": "<p>Every day we work with clients and help them manage their assets.</p><p>Clients may locate their assets offshore for legitimate reasons, but some clients may take steps in an attempt to conceal their assets from tax authorities.</p><p>Governments have addressed this by working together to introduce measures that require the exchange of client information between tax authorities to combat tax evasion.</p><p>Essentially, these measures are the introduction of the Foreign Account Tax Compliance Act (FATCA), Automatic Exchange of Information (AEI) and the evolution of the Qualified Intermediary regime (QI).</p><p><strong>Select each of the tab headings to find out more.</strong></p> <p>&nbsp;</p>",
+					"tiles": [
 						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/1-2-1.jpg",
-									"content": "<h2>Old associates, new challenges</h2><p>&nbsp; <br/></p><p>Kate Chan meets her Structured Products team</p>"
-								}
-							]
+							"title": "FATCA",
+							"content": "FATCA is a US tax law that essentially requires the identification, documentation and reporting of US clients with assets outside of the US to the US tax authorities.",
+							"image": "screens/2-2-1.png",
+							"style": {
+								"font-size": "1em"
+							}
 						},
 						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/1-2-2.jpg",
-									"content": "Kate Chan is a newly appointed manager in Global Credit's Strategic Risk Management Group (SRM). </p><p>She has been asked to take over the Structured Products team, which has been and will continue to be, under significant regulatory scrutiny."
-								}
-							]
+							"title": "AEI",
+							"content": "The AEI regime has been adopted by countries outside of the US to do essentially the same thing as FATCA; that is, to require the identification, documentation and reporting of clients using offshore banking to their local tax authorities. ",
+							"image": "screens/2-2-2.png",
+							"style": {
+								"font-size": "1em"
+							}
 						},
 						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/1-2-3-1.jpg",
-									"content": "Bennett Graham is a long-term colleague of Kate's and is extremely skilled."
-								},
-								{
-									"image": "screens/1-2-3-2.jpg",
-									"content": "But something had changed between them. He was openly supportive, but seemed bitter he had not received the promotion."
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/1-2-4.jpg",
-									"content": "Kate decided it was best to clear the air over lunch. </p><p>Bennett admitted he wanted the job, but was committed to helping her. </p><p>Relieved, Kate explained she needed a strong second-in-command, and asked him to step in while she was away in Zurich."
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/1-2-5-1.jpg",
-									"content": "After returning from Zurich, Kate met junior analyst Ed Gorman in the elevator and asked about the previous day's staff meeting."
-								},
-								{
-									"image": "screens/1-2-5-2.jpg",
-									"content": "Ed shrugged. \"Bennett just asked how things were going. He's busy, and decided to leave the bureaucracy until you got back.\""
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/1-2-6-1.jpg",
-									"content": "Kate decided to visit Bennett. \"I just wanted to ask you about the staff meeting...\""
-								},
-								{
-									"image": "screens/1-2-6-2.jpg",
-									"content": "\"I can't really talk now. I cut it short,\" Bennett said. \"Team morale is important, but shouldn't get in the way of work, right?\""
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/1-2-7-1.jpg",
-									"content": "\"The team stuff's important too, Bennett,\" Kate replied. \"Besides, I asked you to...\""
-								},
-								{
-									"image": "screens/1-2-7-2.jpg",
-									"content": "\"Kate, you might get paid for doing that stuff, but I don't. I don't mean to be rude, but I've got a deadline. Can we talk later?\""
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/1-2-8.jpg",
-									"content": "Kate can't find time to discuss this further and weeks later she receives an email about a report containing major errors. </p><p>She had asked Bennett to support a junior analyst responsible for it, but the analyst says Bennett had been 'too busy' to help."
-								}
-							]
+							"title": "QI",
+							"content": "The Qualified Intermediary regime requires the bank to identify and document clients invested in US securities so as to ensure the bank applies the correct taxation.",
+							"image": "screens/2-2-3.png",
+							"style": {
+								"font-size": "1em"
+							}
 						}
 					]
 				},
 				{
 					"ref": "1.3",
-					"type": "question",
-					"title": "Question 1",
-					"text": "<p>The working relationship between Kate Chan and Bennett Graham is clearly not ideal. Attempting to ignore the issue only caused a problem later. Bennett seems to lack empowerment. </p><p>What could Kate do to get him back on track and empowered, so that he is engaged and committed?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
+					"type": "accordion",
+					"title": "FATCA, AEI, and QI key implications",
+					"text": "<p>FATCA, AEI, and QI share a common objective in improving global tax transparency. You’ll look at each of these in more detail later, however here are some of the main differences.</p> <p><strong>Select each of the headings to find out more.</strong></p> <p>&nbsp;</p>",
+					"slides": [
 						{
-							"text": "Nothing, he maintains a grudge in the workplace, which is a HR issue.",
-							"answer": false
+							"title": "Identifying and documenting account holders",
+							"text": "<table><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img src='media/images/screens/fatca-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'><strong>FATCA</strong><br/>The bank must identify and document <a href='#' data-popup='0'> US Persons</a> who hold accounts outside the US</td></tr><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img src='media/images/screens/aei-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'><strong>AEI</strong><br/>The bank must identify and document the tax residence/residencies of all clients</td></tr><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img src='media/images/screens/qi-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'><strong>QI</strong><br/>The bank must identify and document all persons investing in US securities</td></tr></table>"
 						},
 						{
-							"text": "Put more pressure on him, so he is aware of his roles and responsibilities.",
-							"answer": false
+							"title": "Reporting",
+							"text": "<table><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img src='media/images/screens/fatca-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'>FATCA accounts are reported to the US Internal Revenue Service directly or via local tax authorities</td></tr><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img src='media/images/screens/aei-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'>AEI accounts are reported to the tax authority where the client is resident via the local tax authorities</td></tr><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img src='media/images/screens/qi-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'>Income from QI accounts investing in US securities is reported directly to the US Internal Revenue Service</td></tr></table>"
 						},
 						{
-							"text": "Use C&E Standards to help him find the activity's value and impact. ",
-							"answer": true
-						},
-						{
-							"text": "Focus him on the C&E Standards, specifically Meritocracy",
-							"answer": false
+							"title": "Withholding tax",
+							"text": "<table><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img src='media/images/screens/fatca-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'><strong>FATCA</strong><br/>30% withholding tax on income from US securities of relevant non-compliant account holders</td></tr><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img src='media/images/screens/aei-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'><strong>AEI</strong><br/>No withholding tax obligation</td></tr><tr><td style='border:none;background-color:#e6e7e8;vertical-align:middle;'><img style='min-width: 26px; height: 22px;' src='media/images/screens/qi-icon-small.png'/></td><td style='border:none;background-color:#e6e7e8;'><strong>QI</strong><br/>Income from US securities paid to non-US persons is subject to US withholding tax at a rate of 30%. A lower rate may apply under some conditions</td></tr></table>"
 						}
 					],
-					"feedback": "<p>Bennett Graham's actions are not acceptable under the Conduct and Ethics (C&E) Standards. He has failed to maintain the trust of his colleagues and take ownership of his actions, resulting in incidents that could have been avoided through open and honest dialogue.</p><p>At the same time Bennett is lacking empowerment. He doesn't seem to have a sense of value or impact in what he is doing. Giving honest and direct feedback within a team enables people to uphold the Conduct and Ethics Standards.</p>",
 					"popups": [
 						{
-							"content": "<p>That is not right. Here's a reminder about the content.</p><p>Implementing positive leadership encompasses empowering employees &ndash; empowering Bennett will take additional measures by Kate.</p><p><strong>A sense of personal competence</strong> &ndash; provide personal mastery experiences, connect actions to successful outcomes and effects, model successful behaviors</p><p><strong>A sense of personal choice&nbsp;</strong>&ndash; clarify the overriding vision and goals</p><p><strong>A sense of impact</strong> &ndash; connect with recipients of the outcomes, provide resources, recognize and encourage</p><p><strong>A sense of value in the activity</strong>&nbsp;&ndash; clarify long-term consequences</p><p><strong>A sense of security</strong>&nbsp;&ndash; provide honest feedback using supportive communication, offer support for development</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Empowered people see the meaningfulness of the activities in which they are engaged and see the effects of their actions on others.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
+							"title": "US Persons",
+							"content": "<p>US citizens, US tax residents and entities organized in the US. In addition, certain entities with Controlling Persons who are US citizens or US tax residents.</p>"
 						}
-					],
-					"background": {
-						"blank": true
-					}
+					]
 				},
 				{
 					"ref": "1.4",
-					"type": "question",
-					"title": "Question 2",
-					"text": "<p>The Leadership Code helps to grant an insight into the roles, tasks and responsibilities of managers, depending on the situation and circumstances.</p><p>From what is known about Bennett Graham and his performance in this scenario, which roles should Kate employ and consider when managing him?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Talent Developer and Strategist",
-							"answer": false
-						},
-						{
-							"text": "Executor and People Manager",
-							"answer": true
-						},
-						{
-							"text": "People Manager and Talent Developer",
-							"answer": false
-						},
-						{
-							"text": "Executor and Strategist",
-							"answer": false
-						}
-					],
-					"feedback": "<p>Bennett Graham is skilled and experienced, demonstrating his proficiency.</p><p>However, Kate in this context must focus on short-term, operational achievements. This means creating a positive and constructive team spirit as well as making sure that Bennett has the necessary personal skills and motivation to manage the team in her absence.</p>",
-					"popups": [
-						{
-							"content": "<p><strong>Strategists</strong> have a vision and can capitalize on it.<br /><strong>Executors</strong> translate strategy into action and build teams.<br /><strong>People Managers</strong> can engage others.<br /><strong>Talent Developers</strong> help others realize their potential.<br /><strong>Self-Managers</strong> excel at personal proficiency.</p><p>The two dimensions the Leadership Code looks at are the time dimension (long-term/ strategic and short-term/operational) as well as the people and task dimension.</p><p>&nbsp;</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Though Bennett Graham is known as an excellent individual contributor, his inability to work with others jeopardizes the team. Kate needs to focus on developing these personal skills with him.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
+					"type": "text-image",
+					"layout": "left",
+					"title": "Why FATCA, AEI, and QI are important to me",
+					"text": "<p>I need to be able to answer questions about FATCA, AEI, and QI, so it’s especially important that I understand what implications they have for me, the bank and our clients.</p><p>It also means that I’m in a position to spot any potential tax documentation problems early on, and am able to escalate any breaches.</p>",
+					"image": {
+						"src": "screens/1-4.jpg",
+						"size": "contain",
+						"position": ""
+					},
 					"background": {
 						"blank": true
 					}
 				},
 				{
 					"ref": "1.5",
-					"type": "question",
-					"title": "Question 3",
-					"text": "<p>Culture is the sum of all desirable and undesirable norms, values and thinking of a group, which determines its behavior. Thus, cultivating a good culture helps the team perform and thrive.</p><p>When leaders attempt to foster a change in culture, where should they begin? </p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Encourage change in observable behaviors and features.",
-							"answer": true
-						},
-						{
-							"text": "Make team members agree with the necessity for change.",
-							"answer": false
-						},
-						{
-							"text": "Discuss Conduct and Ethics Standards and personal values with the team.",
-							"answer": true
-						},
-						{
-							"text": "Work with the team to create a motto.",
-							"answer": false
-						}
-					],
-					"feedback": "<p>There are many factors which contribute to the culture of an organization, a function or even a specific team. Be mindful that the lower-level elements in the iceberg model (such as Credit Suisse's Mission and the Conduct and Ethics Standards) directly influence how the levels above are defined and displayed.</p><p>Ultimately, the goal of every manager should be to make the invisible visible to the outside-world or team.</p>",
-					"popups": [
-						{
-							"content": "<p>The Iceberg Model illustrates how lower-level cultural elements influence those above. Practicing a specific behavior without the fundamentals of the underlying elements will be shallow and not sustainable. </p><p><ol><li>What will be observed? (Environment and Behavior)</li><li>How will we achieve that? What do we have now? (Capability)</li><li>How do we want to be different? What is our goal? (Identity)</li><li>How do we determine what is right? (Beliefs and Values)</li><li>Why is this important? (Purpose)</li></ol></p><br/>",
-							"imagein":	{
-								"src": 		"screens/1-5-2.jpg",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"100%",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>The Iceberg Model illustrates how lower-level cultural elements influence those above.</p><p><ol><li>What will be observed? (Environment and Behavior)</li><li>How will we achieve that? What do we have now? (Capability)</li><li>How do we want to be different? What is our goal? (Identity)</li><li>How do we determine what is right? (Beliefs and Values)</li><li>Why is this important? (Purpose)</li></ol></p><p>You cannot force people to feel a certain way. Instead, use these underlying elements to foster and encourage change.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
+					"type": "text-image",
+					"layout": "right",
+					"title": "Key messages",
+					"text": "<p>The bank has policies to meet FATCA, AEI, and QI requirements. These policies are key resources to maintaining transparency to global tax authorities.</p><p>So that you can play your part, you will need to understand the principles behind these tax requirements, and what you must do to follow the bank’s policies.</p> <p><b>Use <span class='inline-next'></span> to continue to the next topic, or use <span class='inline-home'></span> to return to the Menu.</b></p><p> &nbsp; </p><p> &nbsp; </p>",
+					"image": {
+						"src": "screens/1-5.jpg",
+						"size": "contain",
+						"position": ""
+					},
 					"background": {
 						"blank": true
 					}
+				}
+			]
+		},
+		{
+			"title": "Identification & Documentation",
+			"keycolor": "dark-sapphire",
+			"unlocks": [
+				4
+			],
+			"screens": [
+				{
+					"ref": "2.b",
+					"type": "banner"
 				},
 				{
-					"ref": "1.6",
+					"ref": "2.1",
 					"type": "video-player",
-					"title": "Video summary",
-					"text":	"<p><b>Use <span class='inline-play'></span> to play the video. Afterwards, use <span class='inline-home'></span> to return to the dashboard.</b></p>",
+					"text": "<p><b>Select <span class='inline-play'></span> to view the introductory learning nugget.</b></p>",
 					"video": {
-						"src": "1-6.mp4",
-						"poster": "1-6.jpg",
+						"src": "2-1.mp4",
+						"poster": "2-1-1.jpg",
 						"cues": [
 							{
-								"text": "Positive leadership is not the same as merely being nice. It acknowledges that negative things happen, but that these are important in producing extraordinary outcomes.",
-								"fallbackImg": "screens/1-6-1-1.jpg",
-								"startTime": 4.0,
-								"endTime": 13.0
-							},
-							{
-								"text": "A solid and robust leadership culture is formed by many different elements which are not immediately visible to the outside world.  ",
-								"fallbackImg": "screens/1-6-1-1.jpg",
-								"startTime": 13.0,
+								"text": "Picture this. You’re in a meeting with a client and you feel that the information they included in their initial documentation isn’t sufficient. Maybe you feel there’s something they’ve missed out, or something just doesn’t stack up.",
+								"fallbackImg": "screens/2-1-2.jpg",
+								"startTime": 6.0,
 								"endTime": 20.0
 							},
 							{
-								"text": "Therefore, it is up to leaders to model the behavior they want to see within the group, thereby strengthening that group's culture.",
-								"fallbackImg": "screens/1-6-1-1.jpg",
+								"text": "Perhaps after onboarding a client you become aware of a change of information which affects the client’s tax status. What should you do?",
+								"fallbackImg": "screens/2-1-3.jpg",
 								"startTime": 20.0,
-								"endTime": 27.0
+								"endTime": 30.0
 							},
 							{
-								"text": "Our decisions impact colleagues, customers and all other stakeholders. Following the Conduct and Ethics Standards will help us avoid and mitigate incidents. ",
-								"fallbackImg": "screens/1-6-1-1.jpg",
-								"startTime": 27.0,
-								"endTime": 37.0
+								"text": "This section is all about making sure the information a client provides matches up with what they tell you and what we know about them.",
+								"fallbackImg": "screens/2-1-4.jpg",
+								"startTime": 30.0,
+								"endTime": 40.0
 							},
 							{
-								"text": "The Leadership Code demonstrates that effective leaders should be able to switch between roles, to adapt to the situation at hand.",
-								"fallbackImg": "screens/1-6-1-1.jpg",
-								"startTime": 37.0,
-								"endTime": 45.0
+								"text": "And how important it is to be aware that if a client’s situation changes, then the information we hold, and report, may also need to change.",
+								"fallbackImg": "screens/2-1-5.jpg",
+								"startTime": 40.0,
+								"endTime": 49.0
 							}
 						]
 					}
-				}			
-			]			
-		},
-		{
-			"title": "Positive Relationships",
-			"keycolor": "bright-turquoise",
-			"screens": [			
-                {
-					"ref": "2.1",
-					"type": "character-pullquote",
-					"layout": "right",
-					"title": "Positive Relationships",
-					"text": "<p><b>Use <span class='inline-play'></span> to listen to the introduction.</b></p>",
-					"image": {
-						"src": "screens/2-1.jpg",
-						"size": "100%",
-						"position": "center"
-					},
-					"audio": {
-						"src": "2-1.mp3",
-						"width": "50%"
-					},
-					"captions": [
-						{
-							"content": "<p>Positive relationships that help people to contribute for the benefit of others, rather than merely receive support from them, are the most valuable. </p><p>They make us feel good, but also help us to perform better.</p><p>We must understand our own needs, as well as those of our employees, colleagues, and clients, thereby improving our relationships and the atmosphere in which we work.</p>"
-						}
-					]		
-				},               
+				},
 				{
 					"ref": "2.2",
-					"type": "case-study",
-					"title": "Brilliant but flawed",
-					"text": "TEXT",
-					"pages": [
+					"type": "click-show",
+					"title": "Individual Client: Characteristics and Documentation",
+					"text": "<p>All new accounts require <a href='http://csintra.net/cfo/fatca/en/index.html' target='_blank'>FATCA</a> and <a href='http://csintra.net/cfo/fatca/en/index.html' target='_blank'>AEI documentation</a> as a condition of account opening. Certain changes in account information that indicate the client may have become a US client <a href='media/pdf/fatca_aei_indicia.pdf' target='_blank'>(FATCA Indicia)</a> or changed tax residence <a href='media/pdf/fatca_aei_indicia.pdf' target='_blank'>(AEI Indicia)</a> may also trigger a requirement for the bank to collect new documentation.</p><p>Additionally, QI documentation is required when an individual wishes to invest in US securities.</p> <p><strong>Select each of the tab headings to find out more.</strong></p> <p>&nbsp;</p>",
+					"tiles": [
 						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/2-2-1.jpg",
-									"content": "<h2>Brilliant but flawed</h2><p>&nbsp; <br/></p><p>Kate must find a way to integrate a maverick.</p>"
-								}
-							]
+							"title": "FATCA",
+							"content": "FATCA is concerned with documenting if someone is a US person, that means, a US citizen or US resident, because they must pay US taxes regardless of where they live.",
+							"image": "screens/2-2-1.png",
+							"style": {
+								"font-size": "1em"
+							}
 						},
 						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/2-2-2.jpg",
-									"content": "Robert Lacey is an Oxford graduate and associate who came to Kate's team from another bank, where he mostly worked alone.</p><p>He's brilliant in his analyses and is highly-regarded by internal clients and senior management."
-								}
-							]
+							"title": "AEI",
+							"content": "AEI is concerned with documenting tax residency(ies) of all clients.",
+							"image": "screens/2-2-2.png",
+							"style": {
+								"font-size": "1em"
+							}
 						},
 						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/2-2-3-1.jpg",
-									"content": "\"Robert has no qualms telling colleagues their work is terrible,\" Kate remarks to her New York counterpart, Mike Bradley."
-								},
-								{
-									"image": "screens/2-2-3-2.jpg",
-									"content": "\"He doesn't suffer fools gladly, does he?\" is his amused response. \"I heard he left someone in tears recently.\""
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/2-2-4-1.jpg",
-									"content": "\"He asked Mei Ling from my team which 'mail order university' she had ordered her degree from,\" Kate sighed."
-								},
-								{
-									"image": "screens/2-2-4-2.jpg",
-									"content": "\"What's been the impact on your team?\" Mike asked. \"Have you spoken with him about this?\""
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/2-2-5.jpg",
-									"content": "\"I spoke to him and he was sort of apologetic, for a while at least. But he went back to doing everything himself. </p><p>Brilliantly, but late. </p><p>Only Bennett Graham will work with him now - I think Robert recognizes that he's pretty senior and reins himself in.\""
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/2-2-6-1.jpg",
-									"content": "\"That doesn't sound promising. What about senior management? How do they feel about him?\""
-								},
-								{
-									"image": "screens/2-2-6-2.jpg",
-									"content": "Kate sighs. \"They really like him. He's very visible in Zurich, and Carolyn – my boss – made it clear we can't afford to lose him.\""
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/2-2-7.jpg",
-									"content": "\"There's a project coming up that I need someone to lead, and Robert is the only one with relevant experience. </p><p>I'll just have to figure out some way to make him an effective team player.\""
-								}
-							]
+							"title": "QI",
+							"content": "<p>QI documents whether someone is a US or non-US person.</p><p>The client may wish to claim a reduced tax rate on their income from US securities based on a tax treaty. In this case, QI documentation will confirm their country of tax residence.</p>",
+							"image": "screens/2-2-3.png",
+							"style": {
+								"font-size": "1em"
+							}
 						}
 					]
 				},
 				{
 					"ref": "2.3",
-					"type": "question",
-					"title": "Question 1",
-					"text": "<p>Everyone is unique and favors a certain style of behavior to conduct themselves and communicate. </p><p>Being aware of this and seeking to understand our respective differences will significantly improve our relationships with colleagues and clients, and the atmosphere in which we work.</p><p>What social style does Robert Lacey exhibit?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
+					"type": "carousel",
+					"title": "Entity Clients: Characteristics and Documentation requirements",
+					"text": "<p>Entity clients, like companies, partnerships and trusts, must provide <a href='http://csintra.net/cfo/fatca/en/index.html' target='_blank'>FATCA</a> and&nbsp;<a href='http://csintra.net/cfo/fatca/en/index.html' target='_blank'>AEI documentation</a> at account opening and upon a change in circumstances if the change affects their FATCA/AEI documentation.</p><p>To invest in US securities, QI documentation is also required.</p><p>The documentation usually has two steps: <strong>Select <span class='inline-next'></span> to learn more.</strong></p>",
+					"pages": [
 						{
-							"text": "Doer",
-							"answer": true
+							"title": "Review where the client is tax resident",
+							"text": "<p>Entities are required to tell us where they are tax resident. The bank then reviews the plausibility of what the client has told us against what we already know.</p>",
+							"image": "screens/2-3-1.jpg"
 						},
 						{
-							"text": "Guardian",
-							"answer": false
-						},
-						{
-							"text": "Integrator",
-							"answer": false
-						},
-						{
-							"text": "Pioneer",
-							"answer": false
+							"title": "Review the client’s FATCA/AEI classification",
+							"text": "<p>FATCA/AEI documentation requires entities to provide us with their FATCA/AEI classification. The bank then reviews the plausibility of the classification against what we already know.</p><p>In addition, some FATCA/AEI/QI classifications require us to look through the entity in order to further identify the US status and tax residencies of the entity&rsquo;s Beneficial Owners or <a href='#' data-popup='0'>Controlling Persons</a>.</p>",
+							"image": "screens/2-3-2.jpg"
 						}
 					],
-					"feedback": "<p>Robert Lacey is an archetypal example of someone with the Doer social style, which is highly assertive but not responsive, preferring to tell and control. They are fast-paced and decisive, impatient with others who can't keep up. Others perceive them as work-oriented, efficient and demanding.</p><p>Acknowledging the characteristics of an individual's style will help establish an appropriate way to contextualize discussion so it can be constructive, and might lend insight into who they will work best with.</p>",
 					"popups": [
 						{
-							"content": "<p>We can identify our own style, but it is important to recognize it in colleagues and other stakeholders as well.</p><p><b>Guardian:</b> Low assertive, low responsive. Cautious and thoughtful. Often cool, rational and detached.</p><p><b>Doer:</b> High assertive, low responsive. Fast-paced and decisive. Often work-oriented, efficient and demanding.</p><p><b>Integrator:</b> Low assertive, high responsive. Considerate and supportive. Often kind, social and self-effacing.</p><p><b>Pioneer:</b> High assertive, high responsive. Fast-moving and adventurous. Often persuasive, energetic, creative and impulsive.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/2-3-2.jpg",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Robert Lacey tells and controls, indicative of a high assertive and low responsive social style.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
+							"title": "Controlling Persons",
+							"content": "<p>The term “Controlling Persons” means the natural persons who exercise control over an entity. In the case of a trust, such term means the settlor, the trustees, the protector (if any), the beneficiaries or class of beneficiaries, and any other natural person exercising ultimate effective control over the trust. In the case of a legal arrangement other than a trust, such term means persons in equivalent or similar positions.</p>"
 						}
-					],
-					"background": {
-						"blank": true
-					}
+					]
 				},
 				{
 					"ref": "2.4",
-					"type": "question",
-					"title": "Question 2",
-					"text": "<p>We should consider the viewpoints of others, but also the factors driving that thinking. This may reveal causes of potentially undesirable behavior.</p><p>From what is known about Robert Lacey in this scenario, what would be a good strategy for Kate to use, in her interactions with him?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
+					"type": "accordion",
+					"title": "Entity Clients: FATCA, AEI, and QI classifications",
+					"text": "<p>Classifications are important because they control who we report to tax authorities. These classifications are complex but can be divided into 3 main categories.</p> <p><strong>Select each of the headings to find out more.</strong></p> <p>&nbsp;</p>",
+					"slides": [
 						{
-							"text": "Explain to Robert that he hurt Mei Ling's feelings.",
-							"answer": false
+							"title": "Financial Institution (FI)",
+							"text": "<p>Financial Institutions are, like Credit Suisse, responsible for identifying, documenting and reporting their clients under FATCA/AEI. FIs include banks, insurance companies and most trust companies and funds. </p>"
 						},
 						{
-							"text": "State the fact that this is inappropriate behavior.",
-							"answer": true
+							"title": "Active Non-financial Entity (ANFE)",
+							"text": "<p>Active Non-financial Entities are primarily “active” operating companies, for example, a bakery, a car manufacturer or a furniture company.</p>"
 						},
 						{
-							"text": "Keep it short and clear. Present the facts.",
-							"answer": true
+							"title": "Passive Non-financial Entities (PNFE)",
+							"text": "<p>Passive Non-financial Entities are primarily private investment vehicles and <a href='#' data-popup='0'>domiciliary companies</a>.</p><p>Passive Non-financial entities are special because banks must not only document the tax residence of the entity itself, but also look through and identify its <a href='#' data-popup='1'>Controlling Persons</a>.</p><p>For reporting purposes, both the entity and the Controlling Persons may be reported.</p><p>If you aren&rsquo;t certain if an entity client is a PNFE, or if you have Reason to Know that a PNFE has a Controlling Person that has not been identified, please escalate to your FATCA/AEI responsible contact. The <a href='http://csintra.net/cfo/fatca/en/index.html' target='_blank'>FATCA, AEI, and QI intranet</a> can tell you who is the right person to contact.</p>"
 						},
 						{
-							"text": "Have a team session and talk things over.",
-							"answer": false
+							"title": "QI classifications",
+							"text": "<p>For QI, the same principles apply but the classification focuses on the structure of the company (e.g. corporation vs. partnership) rather than its function (e.g. Financial Institution or Active Non-financial Foreign Entity).</p>"
 						}
 					],
-					"feedback": "<p>People with a Doer style are high achievers – “mover and shakers” who are not averse to risk. The individual is strong-willed, direct, practical, and decisive. </p><p>They are not concerned with how something is done, but with what is done. They have a low tolerance for feelings and attitudes. They typically have trouble working with others and don't take time to consider other perspectives.</p>",
 					"popups": [
 						{
-							"content": "<p>When communicating with a Doer:</p><p><ul><li>Focus on the task</li><li>Talk about expected results &ndash; don&rsquo;t argue details</li><li>Be business-like, talk about facts &ndash; not feelings</li><li>Provide concise, precise, and organized information</li><li>Discuss and answer &ldquo;what&rdquo; questions &ndash; give options.</li></ul></p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
+							"title": "Domiciliary companies",
+							"content": "<p>For FATCA purposes, the term &ldquo;domiciliary companies&rdquo; includes all legal entities, companies, establishments, foundations, trusts, fiduciary companies or similar associations, that are not operating. Indications that a company is a domiciliary company include:</p><ol class='lower-alpha'><li>it has no business premises of its own (for example c/o address, registered office with a lawyer, fiduciary company, bank, etc.); or</li><li>it has no employees of its own.</li></ol>"
 						},
 						{
-							"content": "<p>With a Doer Style, Robert is competitive, facts orientated and has a low tolerance for the feelings and attitudes of others.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
+							"title": "Controlling Persons",
+							"content": "<p>The term &ldquo;Controlling Persons&rdquo; means the natural persons who exercise control over an entity. In the case of a trust, such term means the settlor, the trustees, the protector (if any), the beneficiaries or class of beneficiaries, and any other natural person exercising ultimate effective control over the trust. In the case of a legal arrangement other than a trust, such term means persons in equivalent or similar positions.</p>"
 						}
-					],
-					"background": {
-						"blank": true
-					}
+					]
 				},
 				{
 					"ref": "2.5",
-					"type": "question",
-					"title": "Question 3",
-					"text": "<p>Biases play a strong role in behavior. It is important that we:</p><ol><li>Accept that people and systems are deeply biased.</li><li>Label the biases likely to occur for a given situation.</li><li>Mitigate biases by attacking the core mechanisms underpinning them.</li></ol><p><span>Which specific bias reinforces Robert Lacey&rsquo;s behavior?</span></p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Availability bias",
-							"answer": false
-						},
-						{
-							"text": "False consensus bias",
-							"answer": true
-						},
-						{
-							"text": "Blind spot bias",
-							"answer": false
-						},
-						{
-							"text": "Confirmation bias",
-							"answer": false
-						}
-					],
-					"feedback": "<p>False consensus is a type of cognitive bias whereby the agreement of others is greatly overestimated, leading to a feeling of assurance and security in their decisions.</p><p>Robert is very likely to ignore the fact that other team members have different views, ideas or approaches. He thinks that his own opinions, beliefs and habits are normal and that others also think the same way as he does. False consensus significantly contributes to Robert's self-esteem and Kate Chan might be inadvertently contributing to this by giving him the lead of the new project.</p>",
-					"popups": [
-						{
-							"content": "<p>A bias might be formed by someone's differences or experiences. Below are common examples you should expect in the workplace.</p><p><b>Availability Bias:</b> Only using quickly available information.</p><p><b>Confirmation Bias:</b> Seeking evidence exclusively to confirm one's beliefs.</p><p><b>In-group/Out-group Bias:</b> Perceiving one's own group more favorably.</p><p><b>False Consensus Bias:</b> Overestimating the degree to which others agree with you.<br/></p><p><b>Blind Spot Bias:</b> Recognizing the impact of biases on the judgement of others, while failing to see the impact of biases on one's own judgment.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Believing that, a) everybody agrees with Robert, and b) shares the same working style and values like him, leads to a misperception on Robert's side.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
+					"type": "text-image",
+					"layout": "right",
+					"title": "Reason to Know",
+					"text": "<p>FATCA, AEI, and QI require us to apply the “Reason to Know” principle every time we receive documentation for each account. We must review the documentation, and question the information the client has provided in the same way that a “reasonably prudent person” in our position would.</p><p>Applying Reason to Know is absolutely key to successfully fulfilling our obligations as a bank, and failure to do so could result in regulatory sanctions or fines for the bank and/or its personnel.</p>",
+					"image": {
+						"src": "screens/2-5.jpg",
+						"size": "contain",
+						"position": ""
+					},
 					"background": {
 						"blank": true
 					}
 				},
 				{
-					"ref": "2.6",
-					"type": "video-player",
-					"title": "Video summary",
-					"text":	"<p><b>Use <span class='inline-play'></span> to play the video. Afterwards, use <span class='inline-home'></span> to return to the dashboard.</b></p>",
-					"video": {
-						"src": "2-6.mp4",
-						"poster": "2-6.jpg",
-						"cues": [
-							{
-								"text": "The demonstration of altruism, compassion, and kindness was found to be necessary for positive relationships to have their maximum positive impact on well-being and performance. ",
-								"fallbackImg": "screens/2-6-1-1.jpg",
-								"startTime": 4.0,
-								"endTime": 15.0
-							},
-							{
-								"text": "Social styles determine how individuals generally interact with others. Knowing our own style is important for recognizing how we are perceived, while knowing the style of others can give insight into their actions and how best to support them.",
-								"fallbackImg": "screens/2-6-1-1.jpg",
-								"startTime": 15.0,
-								"endTime": 30.0
-							},
-							{
-								"text": "Many differences such as environmental or social situations can also cause biases. All people and systems are biased in some way and are not aware of it. In accepting this, biases can be identified and overcome",
-								"fallbackImg": "screens/2-6-1-1.jpg",
-								"startTime": 30.0,
-								"endTime": 45.0
-							}
-						]
+					"ref": "2.6a",
+					"type": "case-study",
+					"title": "Case Study: An RM meets a potential customer",
+					"text": "<p>Because Reason to Know is so important to FATCA, AEI, and QI, let’s explore what it looks like in real life.</p><p>Dmitri Prokofyic has completed his FATCA/AEI documentation in which he has told us he is a non-US person, tax resident in Cyprus.</p><p>He has a meeting with his RM, Sébastien. See if you can identify any discrepancies in Mr Prokofyic’s case.</p><p>&nbsp;</p>",
+					"pages": [
+						{
+							"layout": "single",
+							"parts": [
+								{
+									"image": "screens/2-6-1.jpg",
+									"content": "<p>Sébastien: Good afternoon Mr Prokofyic. Thank you for coming to see me again.</p><p>Dmitri: Not at all, and please call me Dmitri. Did you get all the documentation I sent?</p>"
+								}
+							]
+						},
+						{
+							"layout": "single",
+							"parts": [
+								{
+									"image": "screens/2-6-2.jpg",
+									"content": "<p>Sébastien: Yes, I did.</p><p>Dmitri: Great, because you know I wanted to get this all sorted out so I can get home and spend some time with my children back in Paris.</p>"
+								}
+							]
+						},
+						{
+							"layout": "single",
+							"parts": [
+								{
+									"image": "screens/2-6-3.jpg",
+									"content": "<p>Sébastien: I see. Just in case we need to get in touch. Your mailing address is the one here on this form, in Paris, right?</p><p>Dmitri: Of course. That is where I spend most of my time. You can send me any further documentation to that address.</p>"
+								}
+							]
+						},
+						{
+							"layout": "single",
+							"parts": [
+								{
+									"image": "screens/2-6-4.jpg",
+									"content": "<p>Sébastien: Well, I think that’s everything. Thank you again for coming in and I hope you have a safe trip.</p><p>Dmitri: Thank you, I am looking forward to going home and seeing my family.</p>"
+								}
+							]
+						}
+					],
+					"popups": [
+						{
+							"title": "",
+							"content": "<p>Mr Prokofyic stated that he is a non-US person, tax resident in Cyprus, but he said he was <strong><em>going home</em></strong> to France. He also gave me his mailing address, which is in Paris and said he spends most of his time there.</p><p>It looks like Mr Prokofyic may live in Paris and is resident there.</p><p>From our conversation, I am not sure if the information that Mr Prokofyic has given us on his documentation is plausible. This seems like an AEI question I should raise. I will consult the <a href='http://csintra.net/cfo/fatca/en/index.html' target='_blank'>FATCA, AEI, and QI </a> page to check who I should raise it with.</p>"
+						}
+					]
+				},
+				{
+					"ref": "2.6b",
+					"type": "text-image",
+					"layout": "left",
+					"title": "",
+					"text": "<p>I noticed a few things that didn’t seem to add up. What about you?</p> <p>Mr Prokofyic stated that he is a non-US person, tax resident in Cyprus, but he said he was <strong><em>going home</em></strong> to France. He also gave me his mailing address, which is in Paris and said he spends most of his time there.</p><p>It looks like Mr Prokofyic may live in Paris and is resident there.</p><p>From our conversation, I am not sure if the information that Mr Prokofyic has given us on his documentation is plausible. This seems like an AEI question I should raise. I will consult the <a href='http://csintra.net/cfo/fatca/en/index.html' target='_blank'>FATCA, AEI, and QI </a> page to check who I should raise it with.</p>",
+					"image": {
+						"src": "screens/2-6-5.jpg",
+						"size": "contain",
+						"position": ""
+					},
+					"background": {
+						"blank": true
 					}
-				}	
+				},
+				{
+					"ref": "2.9",
+					"type": "text-image",
+					"layout": "left",
+					"title": "Key messages",
+					"text": "<p>All new accounts require FATCA/AEI documentation as a condition of account opening. QI documentation is required when a client wishes to invest in US securities.</p><p>There are two steps to documenting clients under the tax regimes. Clients must determine their:</p><ul><li>tax residence and US status</li><li>additionally, for entities, their FATCA, AEI, and QI statuses.</li></ul><p>There are three main categories of entity classification: Financial Institutions, Passive Non-financial Entities and Active Non-financial Entities.</p><p>Reason to Know obliges us to review the FATCA, AEI, and QI documentation and question the information in the same way a &ldquo;reasonably prudent person&rdquo; in the same position would.</p><p><strong>Failure to apply Reason to Know properly may result in regulatory sanctions or fines for the bank</strong><strong> and/or its personnel.</strong></p><p>&nbsp;</p> <p><b>Use <span class='inline-next'></span> to continue to the next topic, or use <span class='inline-home'></span> to return to the Menu.</b></p><p> &nbsp; </p><p> &nbsp; </p>",
+					"image": {
+						"src": "screens/2-9.jpg",
+						"size": "contain",
+						"position": ""
+					},
+					"background": {
+						"blank": true
+					}
+				}
 			]
 		},
 		{
-			"title": "Positive Climate",
-			"keycolor": "sapphire",
-			"screens": [			
-                {
+			"title": "How FATCA, AEI, and QI affect our clients",
+			"keycolor": "dark-sapphire",
+			"unlocks": [
+				5
+			],
+			"screens": [
+				{
+					"ref": "3.b",
+					"type": "banner"
+				},
+				{
 					"ref": "3.1",
-					"type": "character-pullquote",
-					"layout": "right",
-					"title": "Positive Climate",
-					"text": "<p><b>Use <span class='inline-play'></span> to listen to the introduction.</b></p>",
-					"image": {
-						"src": "screens/3-1.jpg",
-						"size": "100%",
-						"position": "center"
-					},
-					"audio": {
-						"src": "3-1.mp3",
-						"width": "50%"
-					},
-					"captions": [
-						{
-							"content": "<p>The term 'positive climate' refers to a work environment in which positive emotions dominate over negative emotions. </p><p>Leaders have an extraordinary impact on the organization's climate. </p><p>By focusing on the strengths of people, leaders can enable a positive and motivating climate and therefore counter the tendency toward negativity.</p>"
-						}
-					]		
-				},               
+					"type": "video-player",
+					"text": "<p><b>Select <span class='inline-play'></span> to view the introductory learning nugget.</b></p>",
+					"video": {
+						"src": "3-1.mp4",
+						"poster": "3-1-1.jpg",
+						"cues": [
+							{
+								"text": "Recording relevant client information and keeping it up-to-date is one thing.",
+								"fallbackImg": "screens/3-1-2.jpg",
+								"startTime": 6.0,
+								"endTime": 10.0
+							},
+							{
+								"text": "Making sure the information is reported properly is another. For example,",
+								"fallbackImg": "screens/3-1-3.jpg",
+								"startTime": 10.0,
+								"endTime": 16.0
+							},
+							{
+								"text": "Sara is an American citizen. So under FATCA, information about her Swiss account must be reported to the US tax authorities.",
+								"fallbackImg": "screens/3-1-4.jpg",
+								"startTime": 16.0,
+								"endTime": 26.0
+							},
+							{
+								"text": "However, Norbert’s a UK tax resident. So under AEI, information about his Swiss account is reported to the Swiss tax authorities, and then on to the UK tax authorities.",
+								"fallbackImg": "screens/3-1-5.jpg",
+								"startTime": 26.0,
+								"endTime": 42.0
+							},
+							{
+								"text": "In order to meet our regulatory obligations, we must make sure we provide the correct information to the relevant tax authorities.",
+								"fallbackImg": "screens/3-1-6.jpg",
+								"startTime": 42.0,
+								"endTime": 50.0
+							},
+							{
+								"text": "And that’s what you’ll look at in this section.",
+								"fallbackImg": "screens/3-1-7.jpg",
+								"startTime": 50.0,
+								"endTime": 53.0
+							}
+						]
+					}
+				},
 				{
 					"ref": "3.2",
 					"type": "case-study",
-					"title": "Identifying high potential",
-					"text": "TEXT",
+					"title": "Reporting to Tax Authorities",
+					"text": "<p>Colin is not sure about how FATCA, AEI, and QI reporting affect his clients, so he asks Bridgette for some clarification.</p><p>&nbsp;</p>",
 					"pages": [
 						{
 							"layout": "single",
 							"parts": [
 								{
 									"image": "screens/3-2-1.jpg",
-									"content": "<h2>Identifying high potential</h2><p>&nbsp; <br/></p><p>Bringing out the best in people</p>"
+									"content": "<p>Colin: Hi Bridgette. I wonder if you can help me with a few questions about FATCA, AEI, and QI reporting.</p> <p>Bridgette: Well, as you know, FATCA is focused on US persons. This means that “Reportable Clients” include those who have provided us with documentation of their <a href='#' data-popup='0'>US status</a>.</p>"
 								}
 							]
 						},
@@ -877,7 +656,7 @@
 							"parts": [
 								{
 									"image": "screens/3-2-2.jpg",
-									"content": "Robert Farah worked alongside Kate in her former role and assisted her in developing the risk assessment system. </p><p>Robert is anxious to be promoted in the next year, and has asked for Kate's commitment to put him forward."
+									"content": "<p>Bridgette: It also includes Passive Non-financial entities where we must look-through and report the US Person Controlling Persons, and those clients we have requested documents from, but they haven’t returned them.</p>"
 								}
 							]
 						},
@@ -886,1247 +665,485 @@
 							"parts": [
 								{
 									"image": "screens/3-2-3.jpg",
-									"content": "Robert has always been a great performer and has been successful in his job over the last couple of years. </p><p>He takes pride in his accomplishments. </p><p>Kate has been grateful - without him she wouldn't have been promoted to her managerial role."
+									"content": "<p>Bridgette: However, AEI focuses on clients who are tax resident in countries that have AEI agreements in place &ndash; we call these <a href='#' data-popup='1'>Reportable Jurisdictions</a>. This means that clients who bank with us in a location that is different from their tax residency may be included in reporting to that location&rsquo;s tax authority.</p>"
 								}
 							]
 						},
 						{
-							"layout": "double",
+							"layout": "single",
 							"parts": [
 								{
-									"image": "screens/3-2-4-1.jpg",
-									"content": "Robert knocks on her door and asks."
-								},
-								{
-									"image": "screens/3-2-4-2.jpg",
-									"content": "\"I know you're busy, but I wanted to talk about the promotion issue. You said you were going to put me up.\""
+									"image": "screens/3-2-1.jpg",
+									"content": "<p>Bridgette: Also, the Controlling Persons of a Passive Non-financial Entity may be reported if they are tax resident outside the country where the bank is located. In this case, the location&rsquo;s tax authority shares the information with the client&rsquo;s local jurisdiction.</p><p>QI is slightly different because in general it only reports information about the income clients receive from US Securities.</p>"
 								}
 							]
+						},
+						{
+							"layout": "single",
+							"parts": [
+								{
+									"image": "screens/3-2-2.jpg",
+									"content": "<p>Colin: Great. Can you give me an idea of what’s reported?</p> <p>Bridgette: Yes, of course. For FATCA and AEI it&rsquo;s very similar; the client&rsquo;s name and tax number, account number, end of year account balance and income on the account.</p><p>But in a handful of jurisdictions, a portion of the FATCA reporting is on a <a href='#' data-popup='2'>pooled basis</a> due to banking secrecy and data protection laws.</p>"
+								}
+							]
+						},
+						{
+							"layout": "single",
+							"parts": [
+								{
+									"image": "screens/3-2-3.jpg",
+									"content": "<p>Bridgette: For QI, as I mentioned earlier, in nearly all cases the bank reports the income from US Securities directly to the US tax authorities on a pooled basis.</p><p>If you have more questions about Reporting, the FATCA, AEI, and QI intranet can tell you who the right person to ask is.</p>"
+								}
+							]
+						}
+					],
+					"popups": [
+						{
+							"title": "US person",
+							"content": "<ul><li>A citizen (incl. multiple citizenship) or resident of the United States</li><li>A US domestic partnership</li><li>A US domestic corporation</li><li>Any estate (other than a non-US estate) &ndash; these are not reported</li><li>Any trust if a court within the United States is able to exercise primary supervision over the administration of the trust, and one or more US Persons have the authority to control all substantial decision of the trust.</li></ul>"
+						},
+						{
+							"title": "Reportable Jurisdiction",
+							"content": "<p>The term “Reportable Jurisdiction” means a Jurisdiction with which an agreement is in place to exchange information.</p>"
+						},
+						{
+							"title": "Pooled Reporting",
+							"content": "<p>In Pooled Reporting, we do not report specific client information – instead we report total accounts and total assets.</p>"
 						}
 					]
 				},
 				{
 					"ref": "3.3",
-					"type": "question",
-					"title": "Question 1",
-					"text": "<p>Developing employees often requires helping an employee to explore their strengths, development areas and career opportunities along with the future needs of the company.</p><p>In the case of Robert Farah, what should Kate do?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
+					"type": "carousel",
+					"title": "Withholding Tax",
+					"text": "",
+					"pages": [
 						{
-							"text": "Continue with the promotion process and provide some coaching.",
-							"answer": false
+							"text": "<p>Withholding Taxes are amounts taken from a client&rsquo;s income before the income is paid to the client. The US imposes a 30% withholding tax on income from US securities paid to non-US persons.</p><p>Non-US clients are allowed to claim a reduced rate of withholding tax if their relevant tax jurisdiction has a tax treaty with the US. QI enables the collection of withholding tax on income from US securities and, where applicable, secures a reduced rate for clients.</p>",
+							"image": "screens/3-3-1.jpg"
 						},
 						{
-							"text": "Have an honest conversation about his career aspirations.",
-							"answer": true
-						},
-						{
-							"text": "Explain that promotion is almost impossible.",
-							"answer": false
-						},
-						{
-							"text": "Kate should postpone the discussion. She shouldn't raise expectations.",
-							"answer": false
+							"text": "<p>Under FATCA, withholding acts as a penalty &ndash; it imposes a 30% withholding tax on income from US securities where clients do not provide documentation. Tax treaties don&rsquo;t reduce FATCA withholding.</p><p>If FATCA withholding applies, it takes priority over QI withholding. Where FATCA withholding is not applied, US non-compliant account holders are subject to 24% \"back-up\" withholding under QI. Compliant US account holders are not subject to withholding tax on income from US securities.</p>",
+							"image": "screens/3-3-2.jpg"
 						}
-					],
-					"feedback": "<p>High performance and high potential are not the same. Aligning people's skills and aspirations with the needs and requirements of the business is a key skill of a manager. The aspirations of Robert might be to get promoted, but Kate would need to make sure that she also identifies Robert's potential to take over a managerial role within the next 3 years. </p><p>In this case he is obviously not lacking motivation, but does he also have the necessary untapped skills or the ability to learn new skills for a managerial role? These are topics she should discuss with Robert in an open and honest way. </p>",
-					"popups": [
-						{
-							"content": "<p>Robert assumes that he will be put forward for promotion. It is not clear why Robert should be promoted. High performance and high potential are not the same. Maybe it would be a good idea for Kate to first talk with Robert about his strengths, possible weaknesses and his aspirations in general. But Kate should also discuss how she will assess Robert's potential over the next 3 years.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/3-3-2.jpg",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Kate should have an open discussion with Robert and about talk about his career aspirations.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
-					"background": {
-						"blank": true
-					}
+					]
 				},
 				{
 					"ref": "3.4",
-					"type": "question",
-					"title": "Question 2",
-					"text": "<p>Strengths give us energy and guide us toward fulfilling our potential and help us sustain peak performance. </p><p>If people are enabled to use their strengths in different ways, this will result in higher morale and motivation for them.</p><p>How might Kate Chan apply this to her team? </p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Training fills gaps and provides sufficient learning opportunities.",
-							"answer": false
-						},
-						{
-							"text": "Use the opportunity to also focus upon individual weaknesses.",
-							"answer": false
-						},
-						{
-							"text": "Roles and tasks should be allocated according to (un)realized strengths.",
-							"answer": true
-						},
-						{
-							"text": "New tasks and responsibilities may activate unrealized strengths.",
-							"answer": true
-						}
-					],
-					"feedback": "<p>Strengths are resources which energize people and enable optimal performance. In simple terms, they are things that we do well and love doing, which propel us to be exceptional.</p><p>Realized strengths are things you already do and energize you. Unrealized strengths are those you find energizing and perform well, but may not have as much opportunity to use often. Learned behaviors do not energize. </p><p>Weaknesses are things we find hard and don't energize or may even demotivate us. Training supports learning and development, however application of the learned and reflection is more important.</p>",
-					"popups": [
-						{
-							"content": "<p>Training is a key element to learning and development. However, a much bigger part of learning happens on the job and through other people. Therefore, delegation of tasks, working in projects, shadowing, or job rotation must be in focus.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Weakness and learned behavior activities should be minimized where possible! </p><p>Strengths are best used appropriately for situation and context. </p><p>Don't just rely on one or two of your favorites – use the full range of your strengths.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
+					"type": "text-image",
+					"layout": "left",
+					"title": "Termination",
+					"text": "<p><strong>FATCA</strong></p><p>For our private banking businesses, Credit Suisse terminates the relationships of clients who do not comply with our FATCA documentation requirements. This is governed by the FATCA Global Policy; <a href='http://csintra.net/cfo/fatca/doc/fatca_termination_rules.pdf' target='_blank'>Termination Rules</a></p><p>Client accounts that are subject to termination are transferred from RM ownership to the ownership of an independent team, who are responsible for executing the termination process.</p><p><strong>AEI</strong></p><p>As the AEI regime develops, certain governments are taking actions to issue rules or guidance that will require the closure of accounts that are not compliant. The bank closely monitors these developments and plans to implement processes where required.</p><p>The <a href='http://csintra.net/cfo/fatca/en/index.html' target='_blank'>FATCA, AEI, and QI intranet</a> can provide more information on these developments.</p>",
+					"image": {
+						"src": "screens/3-4.jpg",
+						"size": "",
+						"position": ""
+					},
 					"background": {
 						"blank": true
 					}
 				},
 				{
 					"ref": "3.5",
-					"type": "question",
-					"title": "Question 3",
-					"text": "<p>Identifying talent is a key element of the People Manager role. </p><p>Discussions around potential and career aspirations help both manager and direct report to develop a clear picture of future development over the next three years.</p><p>At Credit Suisse 'Potential' contains the following elements:</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "motivation, ability to learn, untapped expertise",
-							"answer": true
-						},
-						{
-							"text": "interest, internal mobility, career timeframe",
-							"answer": false
-						},
-						{
-							"text": "network, sponsors, internal mobility",
-							"answer": false
-						},
-						{
-							"text": "past leadership experience, behaviors, performance",
-							"answer": false
-						}
-					],
-					"feedback": "<p>Managers assess team members' motivation for taking on additional responsibility: ability to learn quickly and adapt in new situations and their level of untapped expertise which can be leveraged.</p><p>This assessment will be reviewed and confirmed in the Talent Review process. After confirmation, this will also trigger activities which were documented in the personal development plan (PDP).</p>",
-					"popups": [
-						{
-							"content": "<p>Potential is a forward-looking indicator to identify those who have the motivation and ability to take on additional responsibility within a 3-year timeframe. Indicators are:</p><p><ol><li>Motivation for taking on additional responsibility</li><li>Ability to learn quickly and adapt in new situations</li><li>Level of untapped expertise which can be leveraged</li></ol></p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>The indicators for potential are</p><p><ol><li><b><u>Motivation</u></b> for taking on additional responsibility</li><li><b><u>Ability to learn</u></b> quickly and adapt in new situations</li><li>Level of <b><u>untapped expertise</u></b> which can be leveraged</li></ol></p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
+					"type": "text-image",
+					"layout": "right",
+					"title": "No assistance in avoidance of FATCA, AEI, and QI",
+					"text": "<p>You need to be aware that certain actions, or intentional inactions, may result in assisting clients to avoid reporting and withholding.</p><p>Credit Suisse employees, including account holder onboarding teams and management personnel, are strictly prohibited from assisting, or knowingly permitting account holders, to avoid FATCA, AEI, and QI rules.</p>",
+					"image": {
+						"src": "screens/3-5.jpg",
+						"size": "",
+						"position": ""
+					},
 					"background": {
 						"blank": true
 					}
 				},
 				{
-					"ref": "3.6",
+					"ref": "3.6a",
+					"type": "question",
+					"title": "Example Scenario 1",
+					"text": "<p>Alejandro, the RM, knows that his client is a US and Spanish dual citizen. His client has indicated that he does not want to deal with the hassle of a US status.</p><p>Should Alejandro only enter the Spanish citizenship in the system? </p>",
+					"style": "check",
+					"options": [
+						{
+							"text": "Yes",
+							"answer": false
+						},
+						{
+							"text": "No",
+							"answer": true
+						}
+					],
+					"feedback": "",
+					"background": {
+						"blank": true
+					}
+				},
+				{
+					"ref": "3.6b",
+					"type": "question",
+					"title": "Example Scenario 2",
+					"text": "<p>Rukshahna’s client tells her that he has set up a series of companies in order to separate out his assets, and lower the values reported to tax authorities under AEI. He wants to open an account for one of these companies with Credit Suisse.</p><p>Is it all right for Rukshahna to help him open the account? </p>",
+					"style": "check",
+					"options": [
+						{
+							"text": "Yes",
+							"answer": false
+						},
+						{
+							"text": "No",
+							"answer": true
+						}
+					],
+					"feedback": "",
+					"background": {
+						"blank": true
+					}
+				},
+				{
+					"ref": "3.6c",
+					"type": "question",
+					"title": "Example Scenario 3",
+					"text": "<p>Elizabeth’s client runs a toy factory. He is retiring and comes to see Elizabeth to tell her the news, and to expect a large payment sum into the account because he has sold the factory. He will only use the account going forward for personal investments and enjoying his retirement.</p><p>Should Elizabeth ignore the fact that her client mentioned the sale so that he doesn’t have to supply new FATCA/AEI documentation with the updated classification?</p>",
+					"style": "check",
+					"options": [
+						{
+							"text": "Yes",
+							"answer": false
+						},
+						{
+							"text": "No",
+							"answer": true
+						}
+					],
+					"feedback": "",
+					"background": {
+						"blank": true
+					}
+				},
+				{
+					"ref": "3.7",
+					"type": "text-image",
+					"layout": "right",
+					"title": "Key messages",
+					"text": "<p>Credit Suisse is required to report, and in some circumstances withhold on, our clients&rsquo; accounts based on their tax residencies or US indicia.</p><p>In addition, private banking clients may be subject to termination where they are not compliant with FATCA documentation requirements.</p><p>It is important that Credit Suisse personnel follow all guidance and established procedures to ensure that the bank can correctly discharge its FATCA, AEI, and QI obligations. Failure to do so could result in regulatory action, financial penalties and the associated reputational damage to Credit Suisse.</p> <p><b>Use <span class='inline-next'></span> to continue to the next topic, or use <span class='inline-home'></span> to return to the Menu.</b></p><p> &nbsp; </p><p> &nbsp; </p>",
+					"image": {
+						"src": "screens/3-7.jpg",
+						"size": "",
+						"position": ""
+					},
+					"background": {
+						"blank": true
+					}
+				}
+			]
+		},
+		{
+			"title": "Closing Message",
+			"keycolor": "dark-sapphire",
+			"unlocks": [
+				6
+			],
+			"screens": [
+				{
+					"ref": "4.b",
+					"type": "banner"
+				},
+				{
+					"ref": "4.1",
 					"type": "video-player",
-					"title": "Video summary",
-					"text":	"<p><b>Use <span class='inline-play'></span> to play the video. Afterwards, use <span class='inline-home'></span> to return to the dashboard.</b></p>",
+					"text": "<p><b>Select <span class='inline-play'></span> to view the introductory learning nugget.</b></p>",
 					"video": {
-						"src": "3-6.mp4",
-						"poster": "3-6.jpg",
+						"src": "4-1.mp4",
+						"poster": "4-1-1.jpg",
 						"cues": [
 							{
-								"text": "Managers should be able to create a positive climate where people feel empowered, motivated and energized.",
-								"fallbackImg": "screens/3-6-1-1.jpg",
-								"startTime": 4.0,
+								"text": "It’s fairly obvious that it would be illegal to blatantly help a client evade tax.",
+								"fallbackImg": "screens/4-1-2.jpg",
+								"startTime": 6.0,
 								"endTime": 11.0
 							},
 							{
-								"text": "This climate allows people to live up to their strengths, explore their unrealized strengths and to effectively handle weaknesses and learned behavior.",
-								"fallbackImg": "screens/3-6-1-1.jpg",
+								"text": "But it’s just as wrong to turn a blind eye to a client’s attempts to evade tax themselves, or to help them in any way, or to fail to escalate a suspicion.",
+								"fallbackImg": "screens/4-1-3.jpg",
 								"startTime": 11.0,
-								"endTime": 20.0
+								"endTime": 22.0
 							},
 							{
-								"text": "Though we can encourage our colleagues, we are unable to instill motivation directly.",
-								"fallbackImg": "screens/3-6-1-1.jpg",
-								"startTime": 20.0,
-								"endTime": 25.0
+								"text": "It’s your responsibility to make sure you follow FATCA, AEI and the QI requirements…",
+								"fallbackImg": "screens/4-1-4.jpg",
+								"startTime": 22.0,
+								"endTime": 29.0
 							},
 							{
-								"text": "Intrinsic motivation must come internally from the individual. They do things, because they really want to. ",
-								"fallbackImg": "screens/3-6-1-1.jpg",
-								"startTime": 25.0,
-								"endTime": 32.0
-							},
-							{
-								"text": "When people do things out of guilt, or because of a threat or reward, the effect is not sustainable.",
-								"fallbackImg": "screens/3-6-1-1.jpg",
-								"startTime": 32.0,
-								"endTime": 37.0
-							},
-							{
-								"text": "Managers must focus on what they can influence, which is optimizing an environment which cultivates motivation.",
-								"fallbackImg": "screens/3-6-1-1.jpg",
-								"startTime": 37.0,
-								"endTime": 44.5
-							},
-							{
-								"text": "Finally, managers ensure that their people have a tangible sense of opportunity and development using the 'Potential' assessment.",
-								"fallbackImg": "screens/3-6-1-1.jpg",
-								"startTime": 44.5,
-								"endTime": 51.5
-							},
-							{
-								"text": "It is ideally discussed during the mid-year talent reviews.",
-								"fallbackImg": "screens/3-6-1-1.jpg",
-								"startTime": 51.5,
-								"endTime": 56.0
+								"text": "…that you can explain them and to shine a light on any suspicions by escalating breaches, or suspected breaches, immediately.",
+								"fallbackImg": "screens/4-1-5.jpg",
+								"startTime": 29.0,
+								"endTime": 38.0
 							}
 						]
 					}
-				}	
-			]
-		},
-		{
-			"title": "Positive Meaning",
-			"keycolor": "turquoise",
-			"screens": [			
-               {
-					"ref": "4.1",
-					"type": "character-pullquote",
-					"layout": "right",
-					"title": "Positive Meaning",
-					"text": "<p><b>Use <span class='inline-play'></span> to listen to the introduction.</b></p>",
-					"image": {
-						"src": "screens/4-1.jpg",
-						"size": "100%",
-						"position": "center"
-					},
-					"audio": {
-						"src": "4-1.mp3",
-						"width": "50%"
-					},
-					"captions": [
-						{
-							"content": "<p>Leaders who make work meaningful, not only highlight the benefits to the organization, but also to the individual. </p><p>Aligning individual goals with the goals of the company provides meaning. </p><p>Therefore, setting aligned, challenging and specific objectives, underpinned by constructive feedback are the key elements of creating positive meaning.</p>"
-						}
-					]		
-				},               
+				},
 				{
 					"ref": "4.2",
-					"type": "case-study",
-					"title": "Prepare to review",
-					"text": "TEXT",
-					"pages": [
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/4-2-1.jpg",
-									"content": "<h2>Prepare to review</h2><p>&nbsp; <br/></p><p>Kate prepares her team's reviews.</p>"
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/4-2-2.jpg",
-									"content": "Kate has prepared all the Year-End Reviews except one; she's been putting off Carter Murphy's. </p><p>\"Maybe I feel apprehensive about it\", she reasons. </p><p>Carter's meeting is early next morning. </p><p>Kate is very busy and decides to come back to it later."
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/4-2-3-1.jpg",
-									"content": "Carter is experienced and a solid performer, but now seems to be lacking motivation and has started to make mistakes."
-								},
-								{
-									"image": "screens/4-2-3-2.jpg",
-									"content": "He has been sending different versions of the same report, making Kate's presentations to stakeholders inconsistent."
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/4-2-4-1.jpg",
-									"content": "Kate keeps trying to prepare the review, but there is always some sort of interruption."
-								},
-								{
-									"image": "screens/4-2-4-2.jpg",
-									"content": "Deciding on his contribution rating was straightforward.  Comparing Carter to others, his rating is clear."
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/4-2-5.jpg",
-									"content": "Kate is frustrated that she didn't gather examples of Carter's lacking motivation. </p><p>\"Don't we have a feature called Multi-Source-Something for the review?\" she wonders, but decides it's too late to investigate now..."
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/4-2-6.jpg",
-									"content": "She struggles to think of meaningful feedback for the contribution objectives. </p><p>Barely able to stay awake, she decides to put the ratings in the system with a few notes. </p><p>\"I'll just have to wing it\", she thinks to herself."
-								}
-							]
-						}
-					]
-				},
-				{
-					"ref": "4.3",
-					"type": "question",
-					"title": "Question 1",
-					"text": "<p>Feedback helps identify opportunities and improve performance. </p><p>MyPerformance in general and specifically the year-end review has several benefits which can help Kate to create a positive experience for Carter – and for herself.</p><p>What are those benefits?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Acknowledgement and appreciation",
-							"answer": true
-						},
-						{
-							"text": "Weaknesses can be highlighted",
-							"answer": false
-						},
-						{
-							"text": "Expectations for the next year",
-							"answer": true
-						},
-						{
-							"text": "Definition of strong performance",
-							"answer": true
-						}
-					],
-					"feedback": "<p>MyPerformance provides an effective framework for managers. </p><p>It builds the foundation for compensation, promotion, references etc. and therefore gives managers a tool which helps them support many different HR Lifecycle phases. </p><p>It also provides information and a basis for discussion about poor and strong performance. Both employees and managers can establish a common understanding about contribution and behavior.</p>",
-					"popups": [
-						{
-							"content": "<p><b>Acknowledgement and appreciation</b> – contributions and desirable behavior</p><p><b>Definition of strong performance</b> – employees should understand what strong performance looks like in terms of contribution and behavior</p><p><b>Expectations for the next year</b> – creation of common understanding regarding expectations</p><p><b>Framework for effective management</b> – regarding compensation, promotion, employment references etc.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>The year-end review allows the manager and direct report to explore:</p><p><ul><li>Acknowledgement and appreciation</li><li>Expectations for the next year</li><li>Definition of strong performance</li></ul></p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
+					"type": "text-image",
+					"layout": "center",
+					"title": "Key messages",
+					"text": "<p>In summary, you should be applying the following concepts in your day-to-day work.</p><ul><li>Do not aid clients in the avoidance of FATCA, AEI, and QI requirements</li><li>Know and understand your obligations under the Global Policies</li><li>Escalate any suspected breaches of policy to FATCA/AEI Compliance</li></ul> <p><b>Use <span class='inline-next'></span> to continue to the next topic, or use <span class='inline-home'></span> to return to the Menu.</b></p><p> &nbsp; </p><p> &nbsp; </p><p> &nbsp; </p><p> &nbsp; </p>",
+					"image": {
+						"src": "",
+						"size": "",
+						"position": ""
+					},
 					"background": {
 						"blank": true
 					}
-				},
-				{
-					"ref": "4.4",
-					"type": "question",
-					"title": "Question 2",
-					"text": "<p>The yearly performance management process has three distinct phases – objective setting, mid-year review and year-end review – and each has their own desired outcomes.</p><p>Given that Carter's performance is not up to its normal standard and Kate's observations regarding his lacking motivation, what should Kate have done during Carter's mid-year review?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "If necessary, set new contribution objectives, or adjust existing ones.",
-							"answer": true
-						},
-						{
-							"text": "Discuss potential and development measures.",
-							"answer": true
-						},
-						{
-							"text": "Document the fact that his contribution only partially meets expectations.",
-							"answer": true
-						},
-						{
-							"text": "Rate the contribution objectives and behavior.",
-							"answer": false
-						}
-					],
-					"feedback": "<p>Mid-year reviews provide the opportunity to discuss objectives and give intermediate feedback. Objectives are reviewed and can be adjusted if necessary. Additionally, manager should have conversations with their direct reports about development, potential and aspirations. </p><p>The personal development plan (PDP) can also be formulated/updated if necessary. Unless the performance only partially meets expectations don't give a formal rating. If the performance is not yet satisfactory you would need to document this in the tool.</p>",
-					"popups": [
-						{
-							"content": "<p><strong>Objective Setting</strong></p><ul><li>Set contribution objectives based on business strategies/plans</li></ul><p><strong>Mid-year Review</strong></p><ul><li>Review/adjust objectives based on strategy re-alignment</li><li>Review personal development, make Personal Development Plan (PDP)</li><li>Clarify expected behavior and competencies</li><li>No formal evaluation unless performance tends towards a 'partially met' rating</li></ul><p><strong>Year-end Review</strong></p><ul><li>Rate on both dimensions &ndash; contribution objectives and behavior (dual rating)</li></ul>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Mid-year Review</p><p><ul><li>Review/ possibly adjust objectives based on strategy re-alignment</li><li>Review and discuss personal development and formulate a Personal Development Plan (PDP)</li><li>Clarify expected behavior and behavior</li><li>No formal evaluation unless performance tends towards a 'partially met' rating</li></ul></p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
-					"background": {
-						"blank": true
-					}
-				},
-				{
-					"ref": "4.5",
-					"type": "question",
-					"title": "Question 3",
-					"text": "<p>Kate Chan has had a difficult conversation with Carter Murphy during his year-end review. He didn't perform as expected. This has been reflected in his ratings and discussed. </p><p>In the conversation Carter was surprised by the low rating given. During the conversation it became obvious that he expected a higher rating.</p><p>What could Kate have done differently?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Raise Carter's poor performance during the mid-year discussion.",
-							"answer": true
-						},
-						{
-							"text": "Nothing. Communicating a low rating is always difficult.",
-							"answer": false
-						},
-						{
-							"text": "Involve HR in the discussion for support and to set the tone.",
-							"answer": false
-						},
-						{
-							"text": "Give examples to justify the rating and discuss improvement measures.",
-							"answer": true
-						}
-					],
-					"feedback": "<p>Conducting conversations about performance and providing feedback is something a manager does continuously throughout the year. </p><p>For example, low performance must be addressed during the mid-year discussion and documented in the tool.</p><p>Prepare for reviews thoroughly. Proper preparation shows that it has meaning for you and your direct reports.</p>",
-					"popups": [
-						{
-							"content": "<p>Preparation is key.</p><ul><li>Highlight to the employee during the mid-year review that their performance only partially meets the expectations. Document this in the tool.</li><li>Make sure you have your key message prepared (Rating, Reason, Ramification)</li><li>Collect sufficient examples to have valid evidence to support your view</li><li>Schedule the review and preparation time well in advance</li></ul><p>Understand who and what you are evaluating, and why the appraisal is positive or negative. Focus on achievements and how they reached them.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Low performance must be flagged early in the year. Evidence and examples back your rating.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
-					"background": {
-						"blank": true
-					}
-				},
-				{
-					"ref": "4.6",
-					"type": "video-player",
-					"title": "Video summary",
-					"text":	"<p><b>Use <span class='inline-play'></span> to play the video. Afterwards, use <span class='inline-home'></span> to return to the dashboard.</b></p>",
-					"video": {
-						"src": "4-6.mp4",
-						"poster": "4-6.jpg",
-						"cues": [
-							{
-								"text": "Performance management is a key framework of effective management of direct reports, where behavior can be reinforced and feedback provided in a constructive manner. ",
-								"fallbackImg": "screens/4-6-1-1.jpg",
-								"startTime": 5.0,
-								"endTime": 16.0
-							},
-							{
-								"text": "It is important to show how individual objectives align with overall strategy.",
-								"fallbackImg": "screens/4-6-1-1.jpg",
-								"startTime": 16.0,
-								"endTime": 20.0
-							},
-							{
-								"text": "There are three phases to the performance management. Objective setting: where aligned, challenging and specific objectives are set.",
-								"fallbackImg": "screens/4-6-1-1.jpg",
-								"startTime": 20.0,
-								"endTime": 30.0
-							},
-							{
-								"text": "Mid-year review: where personal development is discussed. ",
-								"fallbackImg": "screens/4-6-1-1.jpg",
-								"startTime": 30.0,
-								"endTime": 34.0
-							},
-							{
-								"text": "The year-end review will grant a meaningful review on contribution and behavior, providing feedback and a rating on both.",
-								"fallbackImg": "screens/4-6-1-1.jpg",
-								"startTime": 34.0,
-								"endTime": 44.0
-							},
-							{
-								"text": "The more difficult a review discussion is expected to be, the more time should be set aside to prepare for it.",
-								"fallbackImg": "screens/4-6-1-1.jpg",
-								"startTime": 44.0,
-								"endTime": 50.0
-							},
-							{
-								"text": "Show that the reviews have meaning, or else they won't.",
-								"fallbackImg": "screens/4-6-1-1.jpg",
-								"startTime": 50.0,
-								"endTime": 53.0
-							}
-						]
-					}
-				}	
+				}
 			]
 		},
 		{
-			"title": "Positive Communication",
+			"title": "Assessment",
 			"keycolor": "dark-sapphire",
-			"screens": [			
-                 {
+			"rules": ["assessment"],
+			"unlocks": [],
+			"screens": [
+				{
+					"ref": "5.b",
+					"type": "banner"
+				},
+				{
 					"ref": "5.1",
-					"type": "character-pullquote",
-					"layout": "right",
-					"title": "Positive Communication",
-					"text": "<p><b>Use <span class='inline-play'></span> to listen to the introduction.</b></p>",
-					"image": {
-						"src": "screens/5-1.jpg",
-						"size": "100%",
-						"position": "center"
-					},
-					"audio": {
-						"src": "5-1.mp3",
-						"width": "50%"
-					},
-					"captions": [
-						{
-							"content": "<p>People typically react more strongly to bad things than to good. </p><p>Minimizing criticism and replacing it with positive feedback and expressions of support can enable positive effects. </p><p>Negative, as well as positive messages, need to be delivered in a supportive manner.</p>"
-						}
-					]		
-				},               
+					"type": "text-image",
+					"text": "<p><b>You must answer at least 4 questions correctly (80%) to pass. </b></p><p>If you do not pass the assessment, revisit the topics then try again.</p><p>Good luck!</p>"
+				},
 				{
 					"ref": "5.2",
-					"type": "case-study",
-					"title": "Something doesn't add up",
-					"text": "TEXT",
-					"pages": [
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/5-2-1.jpg",
-									"content": "<h2>Something doesn't add up</h2><p>&nbsp; <br/></p><p>Kate needs a junior analyst to improve.</p>"
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/5-2-2.jpg",
-									"content": "Miriam Raeder is a junior, yet promising, member of Kate's team. </p><p>Her work rarely contains mistakes and she has a natural ability to connect with people. </p><p>But something had changed, and Miriam was taking a lot of leave."
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/5-2-3-1.jpg",
-									"content": "Miriam's work also seemed to be deteriorating. Carolyn Mills recently complained to Kate about one of Miriam's analysis."
-								},
-								{
-									"image": "screens/5-2-3-2.jpg",
-									"content": "Later, Kate needed Miriam to help prepare a report for senior management, but couldn't find Miriam the afternoon the work was due."
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/5-2-4.jpg",
-									"content": "Miriam was not answering emails or WhatsApp messages. </p><p>As the office was emptying for the day, Miriam came in, looking flustered. </p><p>For the first time, Kate noticed that Miriam was pale and it looked as if she had lost weight."
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/5-2-5-1.jpg",
-									"content": "\"Where were you?\" Kate snapped. \"I need your analysis, Miriam. If we don't, we... Wait, is everything OK?\""
-								},
-								{
-									"image": "screens/5-2-5-2.jpg",
-									"content": "\"Just some personal issues I had to take care of. Let me finish this up for you now,\" said Miriam dejectedly."
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/5-2-6.jpg",
-									"content": "Over the next few weeks, Kate noticed ongoing performance issues with Miriam, but didn't raise them, fearing to intrude if personal or family issues were involved. </p><p>She knew Miriam had a small child and was married to a city lawyer."
-								}
-							]
-						}
-					]
-				},
-				{
-					"ref": "5.3",
-					"type": "question",
-					"title": "Question 1",
-					"text": "<p>A well-balanced positive-to-negative statement ratio is crucial for maintaining motivation. </p><p>Too much positivity can foster complacency and too much negativity can lead to defensiveness and withdrawal.</p><p>What should Kate do regarding Miriam's behavior?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Nothing. These are personal issues which Kate shouldn't address. ",
-							"answer": false
-						},
-						{
-							"text": "Address the issue, focusing only on performance.",
-							"answer": false
-						},
-						{
-							"text": "Address the issue, focusing on absences and personal issues.",
-							"answer": false
-						},
-						{
-							"text": "Share her observations and offer a listening ear.",
-							"answer": true
-						}
-					],
-					"feedback": "<p>Kate needs to address the issue with Miriam as it compromises the overall team performance and image. </p><p>Delivering a negative message in a positive, constructive way means that you describe the situation (rather than evaluate it), you identify objective consequences and/or personal feelings associated with it (rather than assign blame) and thirdly suggest acceptable alternatives (rather than argue about who is right or wrong).</p>",
-					"popups": [
-						{
-							"content": "<p>When delivering negative messages in a positive constructive manner, these three steps are useful: </p><p><ul><li>Describe your observations.</li><li>Identify objective consequences or personal feelings associated with these. </li><li>Suggest acceptable alternatives.</li></ul></p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>When speaking with Miriam, Kate should describe the situation, share her personal feelings and offer support.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
+					"type": "assessment",
+					"introduction": "",
+					"numberOfQuestions": 8,
+					"passPercent": 80,
+					"randomise": false,
 					"background": {
 						"blank": true
-					}
-				},
-				{
-					"ref": "5.4",
-					"type": "question",
-					"title": "Question 2",
-					"text": "<p>There is a three-way model for difficult conversations that describes the way in which dynamics between you, the other party, and the topic may be analyzed.</p><p><span>Using this model, what could Kate define as the minimum and maximum goals for this first conversation with Miriam?</span></p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Min.: Have a casual conversation. / Max.: Find out the personal issues.",
-							"answer": false
-						},
-						{
-							"text": "Min.: Have Miriam understand the issues. / Max.: Mutually agree actions.",
-							"answer": true
-						},
-						{
-							"text": "Min.: Note performance rating impact. / Max.: Change Miriam's behavior.",
-							"answer": false
-						},
-						{
-							"text": "Min.: Request more attendance and focus. / Max.: Improve her performance.",
-							"answer": false
-						}
-					],
-					"feedback": "<p>Kate needs to determine for herself what she wants to get out of this discussion and what she wants to convey. This is the first time that she and Miriam are talking about this. The minimum that Kate can hope for, is to have an open and honest conversation about the issue that needs to be solved.</p><p>So, having an open and honest conversation that there is an issue that needs to be solved could be the minimum Kate can hope for. Being able to define some action points together would be ideal.</p>",
-					"popups": [
-						{
-							"content": "<p>Preparing for a difficult conversation is key. Kate needs to determine for herself what she wants to get out of this discussion and what she wants to convey. This is the first time that she and Miriam are talking about this. </p><p>The minimum that Kate can hope for, is to have a conversation about the issue that needs to be solved. It would be ideal to get to a point, where they can both define some action points. As this stage, the issue cannot have an impact on the performance rating.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/5-4-2.jpg",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>At this point Kate wants to make sure that Miriam understands that there is an issue. Ideally they would define some action points together.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
-					"background": {
-						"blank": true
-					}
-				},
-				{
-					"ref": "5.5",
-					"type": "question",
-					"title": "Question 3",
-					"text": "<p>During the meeting with Miriam, it all comes out. Miriam starts to talk and talk. At the beginning Kate realizes that she is hearing rather than listening. </p><p>She recognizes that she is occupied with herself, only being attentive sporadically and following the discussion only for as long as it takes until she can talk herself. Kate realizes she must listen to Miriam more actively.</p><p>What are the benefits of active listening?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Kate can be emotionally detached and can remain impartial.",
-							"answer": false
-						},
-						{
-							"text": "It ensures mutual understanding.",
-							"answer": true
-						},
-						{
-							"text": "Kate can \"gently interrupt\" and can ask questions to aid understanding.",
-							"answer": true
-						},
-						{
-							"text": "Kate doesn't need to ask too many questions.",
-							"answer": false
-						}
-					],
-					"feedback": "<p>Listening actively means putting yourself in the partner's position, giving them your full attention, and not just concentrating on the content, but also on the nuances.</p><p>Your posture and response tells the partner in the conversation that there is currently nothing more important than them. Active listening:</p><ul><li>Ensures mutual understanding of complex information</li><li>Demonstrates that you are interested</li><li>Reduces the pressure and the speed of the conversation</li><li>Gives you the possibility of \"gently interrupting\" someone</li></ul>",
-					"popups": [
-						{
-							"content": "<p>Actively listening:</p><p><ul><li>Ensures mutual understanding of complex information</li><li>Demonstrates you are interested</li><li>Reduces the pressure and the speed of the conversation </li><li>Gives you the possibility of 'gently interrupting' someone</li></ul></p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Active listening ensures amongst other things mutual understanding and makes it possible to gently interrupt someone who talks too much.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
-					"background": {
-						"blank": true
-					}
-				},
-				{
-					"ref": "5.6",
-					"type": "video-player",
-					"title": "Video summary",
-					"text":	"<p><b>Use <span class='inline-play'></span> to play the video. Afterwards, use <span class='inline-home'></span> to return to the dashboard.</b></p>",
-					"video": {
-						"src": "5-6.mp4",
-						"poster": "5-6.jpg",
-						"cues": [
-							{
-								"text": "Communication which allows a person to be authentic and helpful, even when providing a negative message, is delivered in three steps.",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 4.0,
-								"endTime": 13.0
-							},
-							{
-								"text": "First, deliver an objective description of the event or action. Second, describe the consequences of this.",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 13.0,
-								"endTime": 20.0
-							},
-							{
-								"text": "Thirdly, find a more acceptable solution for both parties. ",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 20.0,
-								"endTime": 24.0
-							},
-							{
-								"text": "Preparation ahead of meetings can give you valuable insight into what might be discussed or raised.",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 24.0,
-								"endTime": 30.0
-							},
-							{
-								"text": "There are three lines of inquiry. The analysis of objectives will help you establish what you want from discussing the subject. ",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 30.0,
-								"endTime": 38.0
-							},
-							{
-								"text": "The analysis of expectations will let you predict what the other party might raise on the subject.",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 38.0,
-								"endTime": 44.0
-							},
-							{
-								"text": "Finally, the analysis of the relationship addresses the dynamics with the other party.",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 44.0,
-								"endTime": 50.0
-							},
-							{
-								"text": "There are also several communication tools that you should remember to use, which will help to tackle different problems. ",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 50.0,
-								"endTime": 56.0
-							},
-							{
-								"text": "Balancing the use of advocacy and inquiry can help guide a conversation in the desired direction and active listening will enable you to truly engage with others.",
-								"fallbackImg": "screens/5-6-1-1.jpg",
-								"startTime": 56.0,
-								"endTime": 66.0
-							}
-						]
-					}
-				}	
-			]
-		},
-		{
-			"title": "Positive Strategies",
-			"keycolor": "dark-turquoise",
-			"screens": [			
-                 {
-					"ref": "6.1",
-					"type": "character-pullquote",
-					"layout": "right",
-					"title": "Positive Strategies",
-					"text": "<p><b>Use <span class='inline-play'></span> to listen to the introduction.</b></p>",
-					"image": {
-						"src": "screens/6-1.jpg",
-						"size": "100%",
-						"position": "center"
 					},
-					"audio": {
-						"src": "6-1.mp3",
-						"width": "50%"
-					},
-					"captions": [
-						{
-							"content": "<p>Directing others' attention is a primary task of leadership, but to do it well, leaders must be able to focus their own attention. It is all too easy to devote time to low-value tasks that could be handled by others, and it is not always immediately clear where our priorities lie. A constant onslaught of information makes us less focused.</p>"
-						}
-					]		
-				},               
-				{
-					"ref": "6.2",
-					"type": "case-study",
-					"title": "Treading water",
-					"text": "TEXT",
-					"pages": [
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/6-2-1.jpg",
-									"content": "<h2>Treading water</h2><p>&nbsp; <br/></p><p>Kate is troubled by a heavy workload.</p>"
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/6-2-2.jpg",
-									"content": "These last weeks have been the busiest Kate has endured since becoming a manager. </p><p>It has come at significant personal cost – cancelling weekend plans, late nights at the office and missed gym sessions have become the norm, not the exception."
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/6-2-3-1.jpg",
-									"content": "\"It looks like you've been struggling,\" Carolyn Mills, her line manager began. \"With the heavier responsibilities, I mean.\""
-								},
-								{
-									"image": "screens/6-2-3-2.jpg",
-									"content": "Kate shrugged. \"Maybe a little. I'll get it under control, though.\" She mostly believed it."
-								}
-							]
-						},
-						{
-							"layout": "double",
-							"parts": [
-								{
-									"image": "screens/6-2-4-1.jpg",
-									"content": "\"You need to think about how to get organized better. We've got a big problem if work isn't produced at the right quality.\""
-								},
-								{
-									"image": "screens/6-2-4-2.jpg",
-									"content": "\"I'm especially concerned now,\" Carolyn continued, \"because we're adding new products, so you'll have three more.\""
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/6-2-5.jpg",
-									"content": "Kate mentally said goodbye to her planned vacation on hearing the news. </p><p>Carolyn will not be providing extra headcount and has made it clear that Kate needs to do more with less. </p><p>Less work, more planning. Less analysis, more management, and so on."
-								}
-							]
-						},
-						{
-							"layout": "single",
-							"parts": [
-								{
-									"image": "screens/6-2-6.jpg",
-									"content": "Carolyn left after giving some final advice. </p><p>Kate liked her suggestion of putting Robert in charge for the day while she focused solely on creating a strategy for the new products. </p><p>A strategy that would make her team – and her – more efficient."
-								}
-							]
-						}
+					"assessmentPass": "<p>Congratulations, you passed the assessment. You scored {qu} out of 5 ({%}%).</p><p><b>Use <span class='inline-home-white'></span> to return to the Menu.</p>",
+					"assessmentFail": "<p>Unfortunately, you have not passed the assessment.</p><p>You scored {qu} out of 5 ({%}%) and required a score of 4 (80%).</p> <p><b>Use <span class='inline-home-white'></span> to return to the Menu and review the topics, or attempt the assessment again.</b></p>",
+					"questions": [
+						"q1.1",
+						"q1.3",
+						"q1.4",
+						"q1.5",
+						"q1.6",
+						"q1.7",
+						"q1.8",
+						"q1.11"
 					]
-				},
-				{
-					"ref": "6.3",
-					"type": "question",
-					"title": "Question 1",
-					"text": "<p>In Kate's case, the key to freeing up time in her schedule is to look at her day and identify low value tasks. </p><p>What questions could Kate ask herself to identify low-value tasks? </p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "How does this activity contribute to my objectives?",
-							"answer": true
-						},
-						{
-							"text": "How easily could I outsource this activity?",
-							"answer": true
-						},
-						{
-							"text": "How urgent is this task?",
-							"answer": true
-						},
-						{
-							"text": "How much do I like/dislike this task?",
-							"answer": false
-						}
-					],
-					"feedback": "<p>The key to freeing up time in your schedule is to look at your day and identify tasks that are both unimportant and easy to off-load. </p><p>Research suggests that at least one-quarter of knowledge workers' activities fall into both categories. The first step — figuring out which tasks you can eliminate — requires answering a series of questions.</p><p><ul><li>How does this activity contribute to the objectives?</li><li>How urgent is this task?</li><li>How easily could you outsource this activity?</li></ul></p>",
-					"popups": [
-						{
-							"content": "<p>We must place greater value on our time and make sure we can identify the low-value tasks. Ask yourself:</p><p><b>How does this activity contribute to my objectives?</b></p><p><b>How urgent is this task?</b></p><p><b>How easily could I outsource this activity?</b></p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Identify low-value tasks by asking yourself:</p><p><b>How does this activity contribute to my objectives?</b></p><p><b>How urgent is this task?</b></p><p><b>How easily could I outsource this activity?</b></p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
-					"background": {
-						"blank": true
-					}
-				},
-				{
-					"ref": "6.4",
-					"type": "question",
-					"title": "Question 2",
-					"text": "<p>Before delegation can happen, we must identify the nature of our tasks and prioritize them accordingly. </p><p>The Eisenhower Matrix is a good tool for prioritizing on tasks, but what two identifying factors about a task form the basis of the matrix?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "Value and Difficulty",
-							"answer": false
-						},
-						{
-							"text": "Alignment and Responsibility",
-							"answer": false
-						},
-						{
-							"text": "Urgency and Importance",
-							"answer": true
-						},
-						{
-							"text": "Divisibility and Autonomy",
-							"answer": false
-						}
-					],
-					"feedback": "<p>In Kate Chan's case, there will be tasks that her seniors or stakeholders require that she has direct involvement and oversight in, and therefore represent high importance. </p><p>However, many day-to-day tasks are not so important and could be handled by someone else or discarded entirely. Similarly, these tasks may be urgent now. The exact combination determines how these tasks should be prioritized.</p>",
-					"popups": [
-						{
-							"content": "<p>Decide whether tasks need to be dropped, delegated or planned using the Eisenhower Matrix. It shows:</p><p><ul><li>What you should keep doing because it is important, and could plan and spend more time on</li><li>What you should keep doing, because it is urgent, but might do more efficiently</li><li>What you can delegate</li><li>What you can safely drop</li></ul></p><br/>",
-							"imagein":	{
-								"src": 		"screens/6-4-2.jpg",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"100%",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>Decide whether tasks need to be dropped, delegated or planned. </p><p>This is easy to do when plotted on a matrix of importance vs. urgency, known as the Eisenhower Matrix.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
-					"background": {
-						"blank": true
-					}
-				},
-				{
-					"ref": "6.5",
-					"type": "question",
-					"title": "Question 3",
-					"text": "<p>We are all aware that delegation can free up precious time in which to plan and create strategy. </p><p>In turn, we know that this enables long-term efficiency gains and reduces the burden on management. </p><p>So why is it still so difficult to delegate tasks?</p>",
-					"image":	"screens/123456-345-1.png",
-					"style": "check",
-					"options": [
-						{
-							"text": "It's easier and quicker to do everything myself.",
-							"answer": true
-						},
-						{
-							"text": "Selecting suitable team members for delegation is difficult.",
-							"answer": true
-						},
-						{
-							"text": "Passing on work will detract from my own importance.",
-							"answer": true
-						},
-						{
-							"text": "I might lack self-confidence and don't want to be upstaged by direct reports.",
-							"answer": true
-						}
-					],
-					"feedback": "<p>Let go of misconceptions (for example, lack of time, trust, perfectionism, negative image, client wishes, desire to retain responsibility, etc.) that prevent you from delegating. </p><p>Often organizational culture hinders delegation, since giving up the role of being ‘the go-to expert’ takes tremendous confidence and perspective, even in healthy environments.</p><p>But accepting that you can’t do everything yourself is a critical first step in successful delegation.</p>",
-					"popups": [
-						{
-							"content": "<p>There are plenty of reasons why managers don’t delegate. Some are perfectionists who feel it’s easier to do everything themselves, or that their work is better than others’. </p><p>Some feel that there is no time to properly delegate. Some believe that passing on work will detract from their own importance, while others lack self-confidence and don’t want to be upstaged by their direct reports.</p><br/>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							}
-						},
-						{
-							"content": "<p>It seems obvious: there are many reasons why managers don’t delegate.</p>",
-							"imagein":	{
-								"src": 		"screens/123456-345-23.png",
-								"height":	"0px",
-								"width":	"30%",
-								"size":		"cover",
-								"float":	"right",
-								"padding":	"30%",
-								"position":	"center"
-							},
-							"colour":	"#633f9a"
-						}
-					],
-					"background": {
-						"blank": true
-					}
-				},
-				{
-					"ref": "6.6",
-					"type": "video-player",
-					"title": "Video summary",
-					"text":	"<p><b>Use <span class='inline-play'></span> to play the video. Afterwards, use <span class='inline-home'></span> to return to the dashboard.</b></p>",
-					"video": {
-						"src": "6-6.mp4",
-						"poster": "6-6.jpg",
-						"cues": [
-							{
-								"text": "Leaders need to focus on the tasks that will benefit most from their attention.",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 5.0,
-								"endTime": 10.0
-							},
-							{
-								"text": "A five-step action plan outlines the way to free up time for important tasks: First, identify low-value tasks. ",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 10.0,
-								"endTime": 19.0
-							},
-							{
-								"text": "Decide whether to drop, delegate or redesign them. Off-load the tasks.",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 19.0,
-								"endTime": 24.0
-							},
-							{
-								"text": "Allocate freed-up time appropriately. Then commit to your plan.",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 24.0,
-								"endTime": 30.0
-							},
-							{
-								"text": "Prioritizing tasks is made simple using the Eisenhower Matrix, a grid that compares the relative importance and urgency of a task and categorizes it. ",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 30.0,
-								"endTime": 40.5
-							},
-							{
-								"text": "Many managers find it initially difficult to delegate tasks.",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 40.5,
-								"endTime": 45.0
-							},
-							{
-								"text": "Some find it difficult to identify appropriate team members, and others may not wish to relinquish control or ownership. ",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 45.0,
-								"endTime": 50.5
-							},
-							{
-								"text": "However, delegation is necessary and the more time that you can spend planning and strategizing, rather than working on low-value tasks, the happier and more productive you will be. ",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 50.5,
-								"endTime": 62.0
-							},
-							{
-								"text": "The long-term benefits to efficiency will become evident.",
-								"fallbackImg": "screens/6-6-1-1.jpg",
-								"startTime": 62.0,
-								"endTime": 65.5
-							}
-						]
-					}
-				}	
+				}
 			]
 		}
-	]
+	],
+	"questions": [
+		{
+			"title": "",
+			"ref": "q1.1",
+			"question": "<p>Which of these regimes requires the bank to identify and document clients who wish to invest in US securities?</p> <p><strong>Select the correct option, and then Submit. </strong></p>",
+			"style": "check",
+			"options": [
+				{
+					"text": "FATCA",
+					"answer": false
+				},
+				{
+					"text": "AEI",
+					"answer": false
+				},
+				{
+					"text": "QI",
+					"answer": true
+				},
+				{
+					"text": "All the above",
+					"answer": false
+				}
+			],
+			"feedback": "The Qualified Intermediary regime requires the bank to identify and document clients who wish to invest in US securities to ensure the bank applies the correct withholding tax rate. FATCA requires the bank to identify and document the US status of all account holders regardless of whether they invest in US securities. AEI requires the bank to identify and document all clients' tax residency(ies) regardless of whether they invest in US securities."
+		},
+		{
+			"title": "",
+			"ref": "q1.3",
+			"question": "<p>When must entity clients provide FATCA and AEI documentation?  </p> <p><strong>Select all that apply.</strong></p>",
+			"style": "check",
+			"options": [
+				{
+					"text": "When there is a material change in their circumstances ",
+					"answer": true
+				},
+				{
+					"text": "At account opening ",
+					"answer": true
+				},
+				{
+					"text": "When their FATCA or AEI status changes",
+					"answer": true
+				},
+				{
+					"text": "Every time the client meets with an RM",
+					"answer": false
+				}
+			],
+			"feedback": "Clients must provide FATCA and AEI documentation at account opening. In addition, clients must provide new documentation upon a change in circumstances, if the change affects their FATCA/AEI status."
+		},
+		{
+			"title": "",
+			"ref": "q1.4",
+			"question": "<p>Classifications control who we report to tax authorities and can be divided into 3 main categories. Which of the following are those three categories?</p> <p><strong>Select the correct answers, and then Submit. </strong></p>",
+			"style": "check",
+			"options": [
+				{
+					"text": "Financial Institutions ",
+					"answer": true
+				},
+				{
+					"text": "Trusts",
+					"answer": false
+				},
+				{
+					"text": "Active Non-financial Entities ",
+					"answer": true
+				},
+				{
+					"text": "Passive Non-financial Entities",
+					"answer": true
+				}
+			],
+			"feedback": "Although Trusts are a type of entity structure, “Trust” is not a FATCA/AEI classification."
+		},
+		{
+			"title": "",
+			"ref": "q1.5",
+			"question": "<p>Which of the following statements about the Reason to Know principle are true?</p> <p><strong>Select the correct answers, and then Submit. </strong></p>",
+			"style": "check",
+			"options": [
+				{
+					"text": "FATCA, AEI, and QI require us to apply the principle every time we receive documentation for each account. ",
+					"answer": true
+				},
+				{
+					"text": "Certain criteria may exempt accounts from the principle.",
+					"answer": false
+				},
+				{
+					"text": "Failure to apply the principle could result in regulatory sanctions or fines.",
+					"answer": true
+				},
+				{
+					"text": "Applying the principle is key to fulfilling our obligations as a bank. ",
+					"answer": true
+				}
+			],
+			"feedback": "You must review and question documentation in the same way that a “reasonably prudent person” in your position would."
+		},
+		{
+			"title": "",
+			"ref": "q1.6",
+			"question": "<p>Which of these statements about FATCA and QI withholding taxes are true?</p> <p><strong>Select all that apply.</strong></p>",
+			"style": "check",
+			"options": [
+				{
+					"text": "Withholding taxes are amounts taken from a client’s income before the income is paid to the client. ",
+					"answer": true
+				},
+				{
+					"text": "Under QI, non-US clients can claim a reduced rate of withholding tax if their relevant tax jurisdiction has a tax treaty with the US.",
+					"answer": true
+				},
+				{
+					"text": "Tax treaties reduce FATCA withholding.",
+					"answer": false
+				},
+				{
+					"text": "Under FATCA, withholding acts as a penalty. ",
+					"answer": true
+				}
+			],
+			"feedback": "Tax treaties do not reduce FATCA withholding. The other statements are true."
+		},
+		{
+			"title": "",
+			"ref": "q1.7",
+			"question": "<p>Credit Suisse terminates private banking client accounts that do not comply with our FATCA documentation requirements. What happens to accounts subject to termination?</p> <p><strong>Select the correct answer, and then Submit. </strong></p>",
+			"style": "check",
+			"options": [
+				{
+					"text": "They are maintained in RM ownership until terminated.",
+					"answer": false
+				},
+				{
+					"text": "They are transferred to an independent team for termination. ",
+					"answer": true
+				},
+				{
+					"text": "They are referred to the local tax authority.",
+					"answer": false
+				},
+				{
+					"text": "They are terminated immediately with no further action.",
+					"answer": false
+				}
+			],
+			"feedback": "Private banking client accounts subject to termination are transferred from RM ownership to the ownership of an independent team, who are responsible for executing the termination process."
+		},
+		{
+			"title": "",
+			"ref": "q1.8",
+			"question": "<p>Which of the following are strictly prohibited from assisting, or knowingly permitting account holders, to avoid FATCA, AEI, and QI rules?</p> <p><strong>Select the correct answer, and then Submit. </strong></p>",
+			"style": "check",
+			"options": [
+				{
+					"text": "All Credit Suisse personnel",
+					"answer": true
+				},
+				{
+					"text": "Only client onboarding teams  ",
+					"answer": false
+				},
+				{
+					"text": "Only Credit Suisse management  ",
+					"answer": false
+				},
+				{
+					"text": "Only Relationship Managers",
+					"answer": false
+				}
+			],
+			"feedback": "It is the responsibility of all Credit Suisse personnel, including account holder onboarding teams and management personnel, to not assist, or knowingly permit account holders, to avoid FATCA, AEI, and QI rules."
+		},
+		{
+			"title": "",
+			"ref": "q1.11",
+			"question": "<p>What does understanding FATCA, AEI, and QI enable you to do?</p> <p><strong>Select the correct answers, and then Submit. </strong></p>",
+			"style": "check",
+			"options": [
+				{
+					"text": "Spot any potential tax documentation problems. ",
+					"answer": true
+				},
+				{
+					"text": "Answer potential customers’ questions. ",
+					"answer": true
+				},
+				{
+					"text": "Escalate any breaches in the legislation.",
+					"answer": true
+				},
+				{
+					"text": "Appreciate the implications these regimes have for you. ",
+					"answer": true
+				}
+			],
+			"feedback": "All the statements are correct."
+		}
+	],
+	"hiddenPages": [],
+	"drawers": []
 }

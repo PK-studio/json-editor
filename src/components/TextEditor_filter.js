@@ -30,7 +30,7 @@ function filterConstructor (){
         function matchTagPatterns() {
             let runAgain = (pattern) => {
                 console.log("can't call 'searchTagsInContnet' again to find rest of the tags in the same string. \n"
-                            + "error: function 'tagExist' is undefined" + err);
+                            + "error: function 'tagExist' is undefined");
             }
             let searchTagsInContnet = (pattern) => {
                 let tag_start_index = newContent.indexOf(pattern.start);
