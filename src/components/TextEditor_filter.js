@@ -27,38 +27,38 @@ function filterConstructor (){
     }
     this.pullOutIcons = function(injectedString){
         let newContent = injectedString;
-        // let loopAgain = false;
-        async function matchTagPatterns() {
-            for (let pairedTag of settings.tags){
-                let searchTagsInContnet = (pairedTag) => {
-                    let tag_start_index = newContent.indexOf(pairedTag.start);
-                    let tag_end_position = newContent.indexOf(pairedTag.end);
-                    let tag_end_index = Number(tag_end_position) + Number(pairedTag.end.length);
-                    function tagExist(){
-                        let value = false;
-                        if(tag_start_index !== -1 || tag_end_position !== -1){
-                            value=true;
-                        }
-                        // debugger;
-                        return value;
+        function matchTagPatterns() {
+            let runAgain = (pattern) => {
+                console.log("can't call 'searchTagsInContnet' again to find rest of the tags in the same string. \n"
+                            + "error: function 'tagExist' is undefined" + err);
+            }
+            let searchTagsInContnet = (pattern) => {
+                let tag_start_index = newContent.indexOf(pattern.start);
+                let tag_end_position = newContent.indexOf(pattern.end);
+                let tag_end_index = Number(tag_end_position) + Number(pattern.end.length);
+                function tagExist(){
+                    if(tag_start_index !== -1 || tag_end_position !== -1){
+                        return true;
                     }
-                    function tagMatched(){
-                        let value = false;
-                        if(tag_start_index !== -1 && tag_end_position !== -1){
-                            value = true;
-                        }
-                        // debugger;
-                        return value; 
+                    // debugger;
+                    return false;
+                }
+                function tagMatched(){
+                    if(tag_start_index !== -1 && tag_end_position !== -1){
+                        return true;
                     }
-                    if(tagExist() && tagMatched()){
-                        storeTag(newContent, tag_start_index, tag_end_index);
-                        newContent = rebuildContent(newContent, tag_start_index, tag_end_index);
-                        // loopAgain = true;;
-                        searchTagsInContnet(pairedTag);
-                        debugger;
-                    }
-                };
-                searchTagsInContnet(pairedTag);
+                    // debugger;
+                    return false;
+                }
+                if(tagExist() && tagMatched()){
+                    storeTag(newContent, tag_start_index, tag_end_index);
+                    newContent = rebuildContent(newContent, tag_start_index, tag_end_index);
+                    runAgain(pattern);
+                }
+            };
+
+            for (let pattern of settings.tags){
+                searchTagsInContnet(pattern)
             }
         }
         // matchTagPatterns = () => {

@@ -62,7 +62,6 @@ class Rows extends Component {
         this.toggleRef = this.toggleRef.bind(this);
     }
     toggleRef(event){
-        event.preventDefoult;
         this.setState(prevState => ({
             showRef: !prevState.showRef
         }));
@@ -76,9 +75,9 @@ class Rows extends Component {
     }
     toggleContent(){
         if(!this.state.showRef){
-            return <div dangerouslySetInnerHTML={{__html: this.props.dataToDisplay.orginal}}></div>;
+            return <div dangerouslySetInnerHTML={{__html: this.props.dataToDisplay.orginal}}></div>
         }else{
-            return <div><p className="clearFormatting">{this.props.dataToDisplay.key}</p></div>;
+            return <div><p className="clearFormatting">{this.props.dataToDisplay.key}</p></div>
         };
     }
     colorReferencesRows(){
