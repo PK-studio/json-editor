@@ -5,8 +5,25 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #908E8E;
 }
 .navigation .nav_el{
     margin: 11px 0;
     border-radius: 10px;
+}
+.navigation input{
+    display: none;
+}
+.nav_input {
+    padding: 10px;
+    margin-right: 20px;
+    background: #C5B8E3; 
+    border-radius: 10px;
+    display: table;
+    color: #000000;
+}
+.nav_input:hover{
+    background: #9D83FB;
+    color: #fff;
 }

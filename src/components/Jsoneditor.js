@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TitleArea from './TitleArea';
 import Navigation from './Navigation';
 import TextEditor from './TextEditor';
+import WorkPanel from './WorkPanel';
 
 class Jsoneditor extends Component {
   constructor(props){
@@ -23,7 +24,6 @@ class Jsoneditor extends Component {
       oldContent: oldData,
       newContent: newData
     })
-
   }
 
   render() {
@@ -32,6 +32,7 @@ class Jsoneditor extends Component {
         <TitleArea />
         <Navigation updater={this.updateData} />
         <TextEditor data={this.state.oldContent} updater={this.updateData} />
+        <WorkPanel />
       </div>
     );
   }

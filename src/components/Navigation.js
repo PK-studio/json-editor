@@ -32,11 +32,12 @@ class Navigation extends Component {
         return(
             <div className="navigation">
                 <form className="nav_el">
-                  <label>
-                    <input type="file" accept=".json" onChange={this.uploadFile} />
-                  </label>
+                    <label className="nav_input">
+                        Choose your file
+                        <input type="file" accept=".json" onChange={this.uploadFile} />
+                    </label>
                 </form>
-                <button className="nav_el" onClick={this.loadData}>upload file data</button>
+                <button className="nav_el" onClick={this.loadData}>Upload file data</button>
             </div>
         );
     };

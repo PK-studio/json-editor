@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import dataWorker from './TextEditor_dataWorker';
+import WorkPanel from './WorkPanel';
 import './TextEditor.css';
+// media assets:
 import eyeIconBackground_black from '../imgs/eye.png';
 import eyeIconBackground_orange from '../imgs/eye-orange.png';
 import editIcon from '../imgs/edit.png';
@@ -22,32 +24,30 @@ class TextEditor extends Component {
     constructor(props){
         super(props)
         this.state = {
-            processedJSON: null
+            dataArrayFromUploadedFile: null
         }
         this.rowsToRender = this.rowsToRender.bind(this)
     };
-
     componentWillReceiveProps(nextProps) {
-        let dataToFurtherEdit =  dataWorker(nextProps.data)
-        this.setState({processedJSON: dataToFurtherEdit})
+        let processedUploadedJSONFile =  dataWorker(nextProps.data)
+        this.setState({dataArrayFromUploadedFile: processedUploadedJSONFile})
+        return null;
     }
-
-    rowsToRender(arrayOfRows){
-        if(!arrayOfRows) return null;
-        let listOfRows = arrayOfRows.map((row, index) =>{
-            return (<Rows key={index} dataToDisplay={row} />)
+    rowsToRender(arrayOfObjects){
+        if(!arrayOfObjects) return null;
+        let listOfRows = arrayOfObjects.map((row, index) =>{
+            return (<Rows key={index} dataToDisplay={row}/>)
         });
         return listOfRows;
     }
-
     render(){
-        if(!this.state.processedJSON){
+        if(!this.state.dataArrayFromUploadedFile){
             alert("Data is empty, load JSON file");
             return null;
         }
         return(
             <div>
-                {this.rowsToRender(this.state.processedJSON)}
+                {this.rowsToRender(this.state.dataArrayFromUploadedFile)}
             </div>
         );
     };
@@ -57,11 +57,27 @@ class Rows extends Component {
     constructor(props){
         super(props);
         this.state = {
-            showRef: false
+            showRef: false,
+            value: null
         };
         this.toggleRef = this.toggleRef.bind(this);
+        this.goToEdition = this.goToEdition.bind(this);
+        this.valueSubscriber = this.valueSubscriber.bind(this);
+        this.workPanelSupp = new WorkPanel()
+    };
+    static getDerivedStateFromProps(props, state) {
+        if(state.value !== props.dataToDisplay.value){
+            state.value = props.dataToDisplay.value
+        ;}
+        return null
     }
-    toggleRef(event){
+    colorReferencesRows(){
+        if(this.props.dataToDisplay.key.indexOf("ref") !== -1){
+            return referencesColor;
+        };
+        return null
+    }
+    toggleRef(){
         this.setState(prevState => ({
             showRef: !prevState.showRef
         }));
@@ -80,25 +96,31 @@ class Rows extends Component {
             return <div><p className="clearFormatting">{this.props.dataToDisplay.key}</p></div>
         };
     }
-    colorReferencesRows(){
-        if(this.props.dataToDisplay.key.indexOf("ref") !== -1){
-            return referencesColor;
-        };
-        return null
+    valueSubscriber(newValue){
+        console.log("'valueSubscriber', new value: " + newValue)
+        console.log(this.state.value)
+        // can't update state
     }
-    switchOnEditing(){
+    goToEdition(){
+        this.workPanelSupp.openWorkPanel(this.state.value, this.valueSubscriber);
+        // It won't work, WorkPanelSupp is not the component whcich we mount before
+        // It should send value to global obj and pull it back when WorkPanel will update value
+    }
+    allowEdit(){
         if(this.props.dataToDisplay.key.indexOf("ref") !== -1){
             return null;
         };
-        return <span style={editIconStyle} className="icon"></span>;
+        return <span style={editIconStyle} className="icon" onClick={this.goToEdition}></span>;
     }
     render(){
         return(
             <div className="TextEditor_row" style={this.colorReferencesRows()}>
-                <div className="first" onClick={this.toggleRef}><span style={this.chooseIcon()} className="icon"></span></div>
+                <div className="first" onClick={this.toggleRef}>
+                    <span style={this.chooseIcon()} className="icon"></span>
+                </div>
                 <div className="second">{this.toggleContent()}</div>
-                <div className="third" dangerouslySetInnerHTML={{__html: this.props.dataToDisplay.value}}></div>
-                <div className="fourth">{this.switchOnEditing()}</div>
+                <div className="third" dangerouslySetInnerHTML={{__html: this.state.value}}></div>
+                <div className="fourth">{this.allowEdit()}</div>
             </div>
         )
     }

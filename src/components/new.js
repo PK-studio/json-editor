@@ -5,7 +5,8 @@ class New extends Component {
         super(props)
     };
 
-    getDerivedStateFromProps(){};
+    getDerivedStateFromProps(props, state){};
+        // 'static getDerivedStateFromProps' method calls immediately after mount component
 
     componentWillReceiveProps(nextProps) {
         // this will be called when it receive props,

@@ -29,7 +29,7 @@ function filterConstructor (){
         let newContent = injectedString;
         function matchTagPatterns() {
             let runAgain = (pattern) => {
-                console.log("can't call 'searchTagsInContnet' again to find rest of the tags in the same string. \n"
+                console.log("can't call 'searchTagsInContnet' again to find rest of the tags: '"+ pattern.start +"' in the same string. \n"
                             + "error: function 'tagExist' is undefined");
             }
             let searchTagsInContnet = (pattern) => {
@@ -40,14 +40,12 @@ function filterConstructor (){
                     if(tag_start_index !== -1 || tag_end_position !== -1){
                         return true;
                     }
-                    // debugger;
                     return false;
                 }
                 function tagMatched(){
                     if(tag_start_index !== -1 && tag_end_position !== -1){
                         return true;
                     }
-                    // debugger;
                     return false;
                 }
                 if(tagExist() && tagMatched()){
