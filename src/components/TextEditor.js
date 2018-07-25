@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import dataWorker from './TextEditor_dataWorker';
-import WorkPanel from './WorkPanel';
 import './TextEditor.css';
 // media assets:
 import eyeIconBackground_black from '../imgs/eye.png';
@@ -23,28 +21,30 @@ const referencesColor = {
 class TextEditor extends Component {
     constructor(props){
         super(props)
-        this.dataArrayFromUploadedFile = null;
         this.rowsToRender = this.rowsToRender.bind(this);
     };
-    componentWillReceiveProps(nextProps) {
-        let processedUploadedJSONFile =  dataWorker(nextProps.data)
-        this.dataArrayFromUploadedFile = processedUploadedJSONFile
-        return null;
-    }
-    rowsToRender(arrayOfObjects){
-        let listOfRows = arrayOfObjects.map((row, index) =>{
-            return (<Rows key={index} dataToDisplay={row} updater={{panel: this.props.updater.panel}}/>)
+
+    rowsToRender(data){
+        let listOfRows = data.map((row, index) =>{
+            return (<Rows 
+                        key={index} 
+                        dataToDisplay={row} 
+                        positionInArray={index} 
+                        updater={this.props.updater}
+                    />)
         });
         return listOfRows;
     }
+
     render(){
-        if(!this.dataArrayFromUploadedFile){
+        console.log("TextEditor renders rows")
+        if(!this.props.data){
             alert("Data is empty, load JSON file");
             return null;
         }
         return(
             <div onClick={this.hideWorkPanel}>
-                {this.rowsToRender(this.dataArrayFromUploadedFile)}
+                {this.rowsToRender(this.props.data)}
             </div>
         );
     };
@@ -91,15 +91,6 @@ class Rows extends Component {
             return <div><p className="clearFormatting">{this.props.dataToDisplay.key}</p></div>
         };
     }
-    goToEdition(){
-        this.props.updater.panel();
-    }
-    allowEdit(){
-        if(this.props.dataToDisplay.key.indexOf("ref") !== -1){
-            return null;
-        };
-        return <span style={editIconStyle} className="icon" onClick={this.goToEdition}></span>;
-    }
     render(){
         return(
             <div className="TextEditor_row" style={this.colorReferencesRows()}>
@@ -111,6 +102,23 @@ class Rows extends Component {
                 <div className="fourth">{this.allowEdit()}</div>
             </div>
         )
+    }
+    allowEdit(){
+        if(this.props.dataToDisplay.key.indexOf("ref") !== -1){
+            return null;
+        };
+        return <span style={editIconStyle} className="icon" onClick={this.goToEdition}></span>;
+    }
+    goToEdition(event){
+        event.preventDefault();
+        const info = {
+            positionInArray: this.props.positionInArray,
+            key: this.props.dataToDisplay.key,
+            orginal: this.props.dataToDisplay.orginal,
+            value: this.props.dataToDisplay.value
+        }
+        this.props.updater.rowInfo(info);
+        this.props.updater.panel();
     }
 }
 
