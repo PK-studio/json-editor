@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
+import './WorkPanel.css';
 
 class WorkPanel extends Component {
     constructor(props){
         super(props);
-        this.state = {
-            valueToEdit: null
-        }
-        this.openWorkPanel = this.openWorkPanel.bind(this);
+        this.state = {}
     };
-
-    openWorkPanel(value, fun){
-        fun("test - fake value");
-        this.setState({valueToEdit: value})
-        // can't update state
-        // WorkPanelSupp is not the component whcich we mount before
-        // ? should I try SubPub 
-    }
     
+    closePanel(){
+        console.log("closePanel")
+        this.props.updater.panel();
+    }
+
     render(){
-        console.log("WorkPanel render")
-        console.log(this.state.valueToEdit)
         return(
-            <div><p>WorkPanel will be rendered here</p></div>
+            <div className="overlayer" onClick={this.closePanel()}>
+                <div className="panel">
+                    <p>WorkPanel will be rendered here</p>
+                </div>
+            </div>
         );
     };
-
-    componentWillUnMount(){};
 };
 
 export default WorkPanel;

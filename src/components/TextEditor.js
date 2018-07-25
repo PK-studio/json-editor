@@ -24,7 +24,7 @@ class TextEditor extends Component {
     constructor(props){
         super(props)
         this.dataArrayFromUploadedFile = null;
-        this.rowsToRender = this.rowsToRender.bind(this)
+        this.rowsToRender = this.rowsToRender.bind(this);
     };
     componentWillReceiveProps(nextProps) {
         let processedUploadedJSONFile =  dataWorker(nextProps.data)
@@ -33,7 +33,7 @@ class TextEditor extends Component {
     }
     rowsToRender(arrayOfObjects){
         let listOfRows = arrayOfObjects.map((row, index) =>{
-            return (<Rows key={index} dataToDisplay={row}/>)
+            return (<Rows key={index} dataToDisplay={row} updater={{panel: this.props.updater.panel}}/>)
         });
         return listOfRows;
     }
@@ -43,7 +43,7 @@ class TextEditor extends Component {
             return null;
         }
         return(
-            <div>
+            <div onClick={this.hideWorkPanel}>
                 {this.rowsToRender(this.dataArrayFromUploadedFile)}
             </div>
         );
@@ -59,8 +59,6 @@ class Rows extends Component {
         };
         this.toggleRef = this.toggleRef.bind(this);
         this.goToEdition = this.goToEdition.bind(this);
-        this.valueSubscriber = this.valueSubscriber.bind(this);
-        this.workPanelSupp = new WorkPanel()
     };
     static getDerivedStateFromProps(props, state) {
         if(state.value !== props.dataToDisplay.value){
@@ -93,15 +91,8 @@ class Rows extends Component {
             return <div><p className="clearFormatting">{this.props.dataToDisplay.key}</p></div>
         };
     }
-    valueSubscriber(newValue){
-        console.log("'valueSubscriber', new value: " + newValue)
-        console.log(this.state.value)
-        // can't update state
-    }
     goToEdition(){
-        this.workPanelSupp.openWorkPanel(this.state.value, this.valueSubscriber);
-        // It won't work, WorkPanelSupp is not the component whcich we mount before
-        // It should send value to global obj and pull it back when WorkPanel will update value
+        this.props.updater.panel();
     }
     allowEdit(){
         if(this.props.dataToDisplay.key.indexOf("ref") !== -1){
