@@ -23,31 +23,28 @@ const referencesColor = {
 class TextEditor extends Component {
     constructor(props){
         super(props)
-        this.state = {
-            dataArrayFromUploadedFile: null
-        }
+        this.dataArrayFromUploadedFile = null;
         this.rowsToRender = this.rowsToRender.bind(this)
     };
     componentWillReceiveProps(nextProps) {
         let processedUploadedJSONFile =  dataWorker(nextProps.data)
-        this.setState({dataArrayFromUploadedFile: processedUploadedJSONFile})
+        this.dataArrayFromUploadedFile = processedUploadedJSONFile
         return null;
     }
     rowsToRender(arrayOfObjects){
-        if(!arrayOfObjects) return null;
         let listOfRows = arrayOfObjects.map((row, index) =>{
             return (<Rows key={index} dataToDisplay={row}/>)
         });
         return listOfRows;
     }
     render(){
-        if(!this.state.dataArrayFromUploadedFile){
+        if(!this.dataArrayFromUploadedFile){
             alert("Data is empty, load JSON file");
             return null;
         }
         return(
             <div>
-                {this.rowsToRender(this.state.dataArrayFromUploadedFile)}
+                {this.rowsToRender(this.dataArrayFromUploadedFile)}
             </div>
         );
     };

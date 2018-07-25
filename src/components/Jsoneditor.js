@@ -8,22 +8,21 @@ class Jsoneditor extends Component {
   constructor(props){
     super(props);
     this.state = {
-      oldContent: null,
-      newContent: null
+      oldJSON: null
     }
+    this.processedData = null;
+    this.getDataArray = this.getDataArray.bind(this);
     this.updateData = this.updateData.bind(this);
   }
   
   updateData(dataObj){
-    if(!dataObj){
-      return null
-    };
-    let oldData = dataObj.old || this.state.oldContent;
-    let newData = dataObj.new || this.state.newContent;
-    this.setState({
-      oldContent: oldData,
-      newContent: newData
-    })
+    if(!dataObj){return null};
+    this.setState({oldJSON: dataObj})
+  };
+
+  getDataArray(dataArray){
+    if(!dataArray){return null};
+    this.processedData = dataArray;
   }
 
   render() {
@@ -31,7 +30,7 @@ class Jsoneditor extends Component {
       <div>
         <TitleArea />
         <Navigation updater={this.updateData} />
-        <TextEditor data={this.state.oldContent} updater={this.updateData} />
+        <TextEditor data={this.state.oldJSON} updater={this.getDataArray} />
         <WorkPanel />
       </div>
     );

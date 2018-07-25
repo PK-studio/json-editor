@@ -13,19 +13,21 @@ class Navigation extends Component {
 
     uploadFile(event){
         let file = event.target.files[0];
-        let fileReader; 
-        fileReader = new FileReader();
-        fileReader.readAsText(file);
-        fileReader.onloadend = (e) => {
-            let fileContnet = JSON.parse(fileReader.result);
-            this.setState({originalData: fileContnet});
-        };
+        if(file){
+            let fileReader; 
+            fileReader = new FileReader();
+            fileReader.readAsText(file);
+            fileReader.onloadend = (e) => {
+                let fileContnet = JSON.parse(fileReader.result);
+                this.setState({originalData: fileContnet});
+            };
+        }
     }
 
     loadData(){
-        const dataObj = {};
-        dataObj.old = this.state.originalData;
-        this.props.updater(dataObj)
+        if(this.state.originalData){
+            this.props.updater(this.state.originalData)
+        }
     }
 
     render(){
