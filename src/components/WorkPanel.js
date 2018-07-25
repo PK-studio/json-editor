@@ -4,17 +4,18 @@ import './WorkPanel.css';
 class WorkPanel extends Component {
     constructor(props){
         super(props);
-        this.state = {}
+        this.state = {};
+        this.closePanel = this.closePanel.bind(this);
     };
     
-    closePanel(){
-        console.log("closePanel")
+    closePanel(event){
+        event.preventDefault();
         this.props.updater.panel();
     }
 
     render(){
         return(
-            <div className="overlayer" onClick={this.closePanel()}>
+            <div className="overlayer" onClick={this.closePanel}>
                 <div className="panel">
                     <p>WorkPanel will be rendered here</p>
                 </div>

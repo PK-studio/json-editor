@@ -16,6 +16,7 @@ class Jsoneditor extends Component {
     this.updateData = this.updateData.bind(this);
     this.getDataArray = this.getDataArray.bind(this);
     this.statusPanel = this.statusPanel.bind(this);
+    // this.toggleWorkPanel = this.toggleWorkPanel.bind(this);
   }
   
   updateData(dataObj){
