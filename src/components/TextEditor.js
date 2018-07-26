@@ -39,7 +39,6 @@ class TextEditor extends Component {
     render(){
         console.log("TextEditor renders rows")
         if(!this.props.data){
-            alert("Data is empty, load JSON file");
             return null;
         }
         return(

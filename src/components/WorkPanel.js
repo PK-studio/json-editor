@@ -11,13 +11,14 @@ class WorkPanel extends Component {
     closePanel(event){
         event.preventDefault();
         this.props.updater.panel();
+        this.props.updater.rowInfo(null);
     }
 
     render(){
-        return(
+        return (
             <div className="overlayer" onClick={this.closePanel}>
                 <div className="panel">
-                    <p>WorkPanel will be rendered here</p>
+                    <p>{this.props.rowData.value}</p>
                 </div>
             </div>
         );

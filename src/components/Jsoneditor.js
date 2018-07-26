@@ -14,8 +14,9 @@ class Jsoneditor extends Component {
       oldJSON: null
     }
     this.processedData = null;
+    this.rowDataToEdition = null;
     this.updateData = this.updateData.bind(this);
-    // this.getDataArray = this.getDataArray.bind(this);
+    this.updateRowInfo = this.updateRowInfo.bind(this);
     this.statusPanel = this.statusPanel.bind(this);
   }
   
@@ -25,10 +26,9 @@ class Jsoneditor extends Component {
     this.processedData = dataWorker(dataObj);
   };
 
-  // getDataArray(dataArray){
-  //   if(!dataArray){return null};
-  //   this.processedData = dataArray;
-  // };
+  updateRowInfo(info){
+    this.rowDataToEdition = info;
+  }
 
   statusPanel(){
     this.setState((prevState) => {
@@ -36,13 +36,12 @@ class Jsoneditor extends Component {
     })
   };
 
-  rowToEdition(info){
-    console.log("rowToEdition", info)
-  }
-
-  toggleWorkPanel(openIt){
-    if(openIt){
-      return <WorkPanel updater={{panel: this.statusPanel}}/>
+  toggleWorkPanel(){
+    if(this.state.workPanelIsOpen){
+      return <WorkPanel 
+                updater={{panel: this.statusPanel, rowInfo: this.updateRowInfo}} 
+                rowData={this.rowDataToEdition}
+              />
     };
     return null
   };
@@ -55,10 +54,10 @@ class Jsoneditor extends Component {
             updater={this.updateData} 
         />
         <TextEditor 
+            updater={{panel: this.statusPanel, rowInfo: this.updateRowInfo}}
             data={this.processedData}
-            updater={{panel: this.statusPanel, rowInfo: this.rowToEdition}} 
-            />
-        {this.toggleWorkPanel(this.state.workPanelIsOpen)}
+        />
+        {this.toggleWorkPanel()}
       </div>
     );
   }
