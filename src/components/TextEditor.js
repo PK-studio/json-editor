@@ -37,7 +37,6 @@ class TextEditor extends Component {
     }
 
     render(){
-        console.log("TextEditor renders rows")
         if(!this.props.data){
             return null;
         }
