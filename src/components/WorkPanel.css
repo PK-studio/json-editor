@@ -1,4 +1,4 @@
-.overlayer{
+.overlayer {
     position: fixed;
     height: 100vh;
     width: 100vw;
@@ -7,12 +7,14 @@
     left: 0;
 }
 .panel {
+    padding: 50px;
     position: fixed;
-    width: 400px;
-    height: 300px;
-    top: 50vh;
-    left: 50vw;
-    margin-top: -150px;
-    margin-left: -200px;
-    background: white;
+    width: 800px;
+    height: 100%;
+    max-height: 400px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -400px;
+    background: #fff;
 }

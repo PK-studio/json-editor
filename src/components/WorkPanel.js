@@ -36,11 +36,16 @@ class WorkPanel extends Component {
         return (
             <div className="overlayer" onClick={this.closePanel}>
                 <div className="panel">
-                    <textarea
+                    <Editor
+                        wrapperClassName="wrapper-class"
+                        editorClassName="editor-class"
+                        toolbarClassName="toolbar-class"
+                    />
+                    {/* <textarea
                         value={this.state.inputValue}
                         onChange={this.updateInputValue}
                     >
-                    </textarea>
+                    </textarea> */}
                     <p>{this.props.rowData.value}</p>
                 </div>
             </div>

@@ -87,7 +87,7 @@ class Rows extends Component {
             return <div dangerouslySetInnerHTML={{__html: this.props.dataToDisplay.orginal}}></div>
         }else{
             return <div><p className="clearFormatting">{this.props.dataToDisplay.key}</p></div>
-        };
+        }
     }
     render(){
         return(
