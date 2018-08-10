@@ -28,6 +28,7 @@ class Jsoneditor extends Component {
 
   updateRowInfo(info){
     this.rowDataToEdition = info;
+    console.log(info)
   }
 
   statusPanel(){
