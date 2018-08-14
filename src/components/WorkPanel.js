@@ -50,17 +50,16 @@ class ControlledEditor extends Component {
     }
 
     onEditorStateChange: Function = (editorState) => {
-        this.setState({
-          editorState
-        });
-        let newContent = draftToHtml(convertToRaw(editorState.getCurrentContent()));
-        let newRowData = this.props.rowData;
-        newRowData.value = newContent
+        const newRowData = this.props.rowData;
+        newRowData.value = draftToHtml(convertToRaw(editorState.getCurrentContent()));
         this.props.updater.rowInfo(newRowData)
+
+        this.setState({
+            editorState
+        });
     };
   
     render() {
-        console.log(this.props)
       const { editorState } = this.state;
       return (
         <div>
@@ -70,10 +69,6 @@ class ControlledEditor extends Component {
                 wrapperClassName="wrapper-class"
                 editorClassName="editor-class"
                 toolbarClassName="toolbar-class"
-            />
-            <textarea
-                disabled
-                value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
             />
         </div>        
       )

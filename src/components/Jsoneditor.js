@@ -11,24 +11,30 @@ class Jsoneditor extends Component {
     super(props);
     this.state = {
       workPanelIsOpen: false,
-      oldJSON: null
+      oldJSON: null,
+      jsonInArrey: null
     }
-    this.processedData = null;
     this.rowDataToEdition = null;
-    this.updateData = this.updateData.bind(this);
+    this.uploadDataFromJson = this.uploadDataFromJson.bind(this);
     this.updateRowInfo = this.updateRowInfo.bind(this);
     this.statusPanel = this.statusPanel.bind(this);
   }
   
-  updateData(dataObj){
+  uploadDataFromJson(dataObj){
     if(!dataObj){return null};
-    this.setState({oldJSON: dataObj});
-    this.processedData = dataWorker(dataObj);
+    this.setState({
+      oldJSON: dataObj, 
+      jsonInArrey: dataWorker(dataObj)}
+    );
   };
 
   updateRowInfo(info){
     this.rowDataToEdition = info;
-    console.log(info)
+    let rowNumber = info.positionInArray
+    let rowNewValue = info.value
+    const arreyReplacer = this.state.jsonInArrey
+    arreyReplacer[rowNumber].value = rowNewValue
+    this.setState({jsonInArrey: arreyReplacer})
   }
 
   statusPanel(){
@@ -39,7 +45,7 @@ class Jsoneditor extends Component {
 
   toggleWorkPanel(){
     if(this.state.workPanelIsOpen){
-      return <WorkPanel 
+      return <WorkPanel
                 updater={{panel: this.statusPanel, rowInfo: this.updateRowInfo}} 
                 rowData={this.rowDataToEdition}
               />
@@ -52,11 +58,11 @@ class Jsoneditor extends Component {
       <div className="topDiv">
         <TitleArea />
         <Navigation 
-            updater={this.updateData} 
+            updater={this.uploadDataFromJson} 
         />
-        <TextEditor 
+        <TextEditor
             updater={{panel: this.statusPanel, rowInfo: this.updateRowInfo}}
-            data={this.processedData}
+            data={this.state.jsonInArrey}
         />
         {this.toggleWorkPanel()}
       </div>
