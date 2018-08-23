@@ -7,14 +7,15 @@ class Navigation extends Component {
         this.state = {
             originalData: null,
         };
+        this.fileInput = React.createRef();
         this.loadData = this.loadData.bind(this);
         this.uploadFile = this.uploadFile.bind(this);
     };
 
     uploadFile(event){
-        let file = event.target.files[0];
+        let file = this.fileInput.current.files[0];
         if(file){
-            let fileReader; 
+            let fileReader;
             fileReader = new FileReader();
             fileReader.readAsText(file);
             fileReader.onloadend = (e) => {
@@ -23,11 +24,17 @@ class Navigation extends Component {
             };
         }
     }
+    
+    fileName(text){
+        if(this.fileInput.current != null){
+            return this.fileInput.current.files[0].name
+        }
+        return "no file chosen"
+    }
 
     loadData(){
-        if(this.state.originalData){
-            this.props.updater(this.state.originalData)
-        }
+        if(this.state.originalData == null) return;
+        this.props.updater(this.state.originalData)
     }
 
     render(){
@@ -35,11 +42,20 @@ class Navigation extends Component {
             <div className="navigation">
                 <form className="nav_el">
                     <label className="nav_input">
-                        Choose your file
-                        <input type="file" accept=".json" onChange={this.uploadFile} />
+                        Choose file
+                        <input 
+                            type="file" 
+                            ref={this.fileInput} 
+                            accept=".json" 
+                            onChange={this.uploadFile}
+                        />
                     </label>
                 </form>
-                <button className="nav_el" onClick={this.loadData}>Upload file data</button>
+                <p className="nav_fileName">{this.fileName()}</p>
+                <label 
+                    className="nav_el nav_input"
+                    onClick={this.loadData}
+                >Upload file data</label>
             </div>
         );
     };
