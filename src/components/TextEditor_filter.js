@@ -2,116 +2,26 @@ import settings from './TextEditor_settings';
 
 function filterConstructor (){
     let tagsStorage = [];
-
-    function storeTag(content, parameter1, parameter2){
-        let extractedTag = content.substring(parameter1, parameter2);
-        tagsStorage.push(extractedTag)
-    }
-    function rebuildContent(orginalString, parameter1, parameter2){
-        let part1 = orginalString.substring(0, parameter1);
-        let part2 = "[iconIsHere_" + getIndicatorNum()  + "]";
-        let part3 = orginalString.substring(parameter2);
-        let newString = part1.concat([part2, part3]);
-        return newString;
-    }
-    function getIndicatorNum(){
+   
+    function contentReplacer(match) {       
         let iNum = tagsStorage.length - 1;
-        switch (true){
-            case (iNum < 10):
-                iNum = "0" + iNum;
-                break;
-            default:
-                break;
+        if(iNum < 10) {
+            iNum = "0" + iNum;
         }
-        return iNum;
+        return "[iconIsHere_" + iNum + "]";
     }
-    this.pullOutIcons = function(injectedString){
-        let newContent = injectedString;
-        function matchTagPatterns() {
-            let runAgain = (pattern) => {
-                console.log("can't call 'searchTagsInContnet' again to find rest of the tags: '"+ pattern.start +"' in the same string. \n"
-                            + "error: function 'tagExist' is undefined");
-            }
-            let searchTagsInContnet = (pattern) => {
-                let tag_start_index = newContent.indexOf(pattern.start);
-                let tag_end_position = newContent.indexOf(pattern.end);
-                let tag_end_index = Number(tag_end_position) + Number(pattern.end.length);
-                function tagExist(){
-                    if(tag_start_index !== -1 || tag_end_position !== -1){
-                        return true;
-                    }
-                    return false;
-                }
-                function tagMatched(){
-                    if(tag_start_index !== -1 && tag_end_position !== -1){
-                        return true;
-                    }
-                    return false;
-                }
-                if(tagExist() && tagMatched()){
-                    storeTag(newContent, tag_start_index, tag_end_index);
-                    newContent = rebuildContent(newContent, tag_start_index, tag_end_index);
-                    runAgain(pattern);
-                }
-            };
 
-            for (let pattern of settings.tags){
-                searchTagsInContnet(pattern)
-            }
-        }
-        // matchTagPatterns = () => {
-        //     // let contentChanged_loopAgain = false;
-        //     async function loopingContent() {
-        //         settings.tags.forEach((pairedTag) => {
-        //             let tag_start_index = newContent.indexOf(pairedTag.start);
-        //             let tag_end_position = newContent.indexOf(pairedTag.end);
-        //             let tag_end_index = Number(tag_end_position) + Number(pairedTag.end.length);
-        //             function tagExist(){
-        //                 return tag_start_index !== -1 || tag_end_position !== -1
-        //             }
-        //             function tagMatched(){
-        //                 return tag_start_index !== -1 && tag_end_position !== -1;
-        //             }
-        //             if(tagExist() && tagMatched()){
-        //                 storeTag(newContent, tag_start_index, tag_end_index);
-        //                 // contentChanged_loopAgain = true;
-        //                 newContent = rebuildContent(newContent, tag_start_index, tag_end_index);
-        //             }
-        //             return Promise.resolve();
-        //         });   
-        //     }
-        // }
-            //=================================================
-            // for(let i=0; i < settings.tags.length; i++){
-            //     let tag_start = settings.tags[i].start
-            //     let tag_end = settings.tags[i].end
-            //     let tag_offset = settings.tags[i].end.length
-
-            //     let tag_start_index = newContent.indexOf(tag_start);
-            //     let tag_end_position = newContent.indexOf(tag_end);
-            //     let tag_end_index = Number(tag_end_position) + Number(tag_offset);
-                
-            //     function tagExist(){
-            //         return tag_start_index !== -1 || tag_end_position !== -1
-            //     }
-            //     function tagMatched(){
-            //         return tag_start_index !== -1 && tag_end_position !== -1;
-            //     }
-            //     if(tagExist() && tagMatched()){
-            //         storeTag(newContent, tag_start_index, tag_end_index);
-            //         newContent = rebuildContent(newContent, tag_start_index, tag_end_index);
-            //         contentChanged_loopAgain = true;
-            //     }else{
-            //         contentChanged_loopAgain = false;
-            //     }
-            // }
-            // if(contentChanged_loopAgain){
-            //     matchTagPatterns();
-            // }
-        // }
-        matchTagPatterns();
-        return newContent
+    // todo: change to replaceIconWithTags
+    this.pullOutIcons = function(content) {        
+        settings.tags.forEach((pattern) => {
+            content = content.replace(new RegExp(pattern), (match) => {
+                tagsStorage.push(match);
+                return contentReplacer(match);
+            });
+        });
+        return content;
     }
+
     this.getBackIcons = function(injectedString){
         let newContent = injectedString;
         if(tagsStorage.length > 0){

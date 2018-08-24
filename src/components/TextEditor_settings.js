@@ -31,20 +31,12 @@ const unwantedCharacters = [
             newCharacter: ' '
         },
 ];
+
 const tags = [
-        {
-            start: "<span",
-            end: "</span>",
-        },
-        {
-            start: "<img",
-            end: " />",
-        },
-        {
-            start: "<img",
-            end: "/>",
-        }
-];
+    /<img[^>]+>/g,
+    /<span>[^>]+<\/span>/g
+]
+
 const checkhtml = [/<p>/g, /<h\d>/g];
 
 
