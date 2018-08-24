@@ -1,4 +1,4 @@
-import settings from './TextEditor_settings';
+import settings from './Body_settings';
 
 function filterConstructor (){
     let tagsStorage = [];

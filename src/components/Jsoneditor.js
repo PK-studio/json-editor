@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import TitleArea from './TitleArea';
+import InfoPanel from './InfoPanel';
 import Navigation from './Navigation';
-import TextEditor from './TextEditor';
-import dataWorker from './DataWorker';
+import Body from './Body';
+import dataWorker from './Jsoneditor_DataWorker';
 import WorkPanel from './WorkPanel';
 import './Jsoneditor.css';
 
@@ -56,11 +56,11 @@ class Jsoneditor extends Component {
   render() {
     return (
       <div className="topDiv">
-        <TitleArea />
+        <InfoPanel />
         <Navigation 
             updater={this.uploadDataFromJson} 
         />
-        <TextEditor
+        <Body
             updater={{panel: this.statusPanel, rowInfo: this.updateRowInfo}}
             data={this.state.jsonInArrey}
         />

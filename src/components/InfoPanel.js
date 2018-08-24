@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TitleArea.css';
+import './InfoPanel.css';
 import iconBackground from '../imgs/info-icon.png';
 
 const iconStyle = {
@@ -10,7 +10,7 @@ const iconStyle = {
     backgroundSize: "cover"
 }
 
-class TitleArea extends Component {
+class InfoPanel extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -60,4 +60,4 @@ class Label extends Component{
     }
 }
 
-export default TitleArea;
+export default InfoPanel;

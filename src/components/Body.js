@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TextEditor.css';
+import './Body.css';
 // media assets:
 import eyeIconBackground_black from '../imgs/eye.png';
 import eyeIconBackground_orange from '../imgs/eye-orange.png';
@@ -18,7 +18,7 @@ const referencesColor = {
     backgroundColor: "#a9abef"
 }
 
-class TextEditor extends Component {
+class Body extends Component {
     constructor(props){
         super(props)
         this.rowsToRender = this.rowsToRender.bind(this);
@@ -120,4 +120,4 @@ class Rows extends Component {
     }
 }
 
-export default TextEditor;
+export default Body;

@@ -9,6 +9,8 @@
 .third h2,
 .third h3,
 .third h4,
+.third ol,
+.third ul,
 .third span {
     margin: 0;
     padding: 0;

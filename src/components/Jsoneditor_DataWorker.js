@@ -1,5 +1,5 @@
-import settings from './TextEditor_settings';
-import filter from './TextEditor_filter';
+import settings from './Body_settings';
+import filter from './Body_filter';
 
 function dataWorker(jsonFile){
     let dataDepo = [];
