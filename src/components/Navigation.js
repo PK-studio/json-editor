@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Navigation.css';
+import testFile from '../content/test.json';
 
 class Navigation extends Component {
     constructor(props){
@@ -10,6 +11,7 @@ class Navigation extends Component {
         this.fileInput = React.createRef();
         this.loadData = this.loadData.bind(this);
         this.uploadFile = this.uploadFile.bind(this);
+        this.loadTestingFile = this.loadTestingFile.bind(this);
     };
 
     uploadFile(event){
@@ -25,9 +27,13 @@ class Navigation extends Component {
         }
     }
     
-    fileName(text){
+    fileName(){
         if(this.fileInput.current != null){
-            return this.fileInput.current.files[0].name
+            if(this.fileInput.current.files.length == 0){
+                return "testing file"
+            }else{
+                return this.fileInput.current.files[0].name
+            }
         }
         return "no file chosen"
     }
@@ -37,9 +43,19 @@ class Navigation extends Component {
         this.props.updater(this.state.originalData)
     }
 
+    loadTestingFile(){
+        this.props.updater(testFile)
+    }
+
     render(){
         return(
             <div className="navigation">
+                <label 
+                    className="nav_test"
+                    onClick={this.loadTestingFile}
+                    >
+                    Load testing file
+                </label>            
                 <form className="nav_el">
                     <label className="nav_input">
                         Choose file
@@ -55,7 +71,9 @@ class Navigation extends Component {
                 <label 
                     className="nav_el nav_input"
                     onClick={this.loadData}
-                >Upload file data</label>
+                    >
+                    Upload file data
+                </label>
             </div>
         );
     };
