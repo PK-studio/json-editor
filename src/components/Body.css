@@ -3,10 +3,20 @@
     flex-direction: row;
     max-width: 1280px;
     margin: auto;
-    padding: 4px 0;
+    padding: 10px 0;
 }
 .TextEditor_row:nth-child(even){
     background-color: #efefef;
+}
+.TextEditor_row .second p,
+.TextEditor_row .third p,
+.TextEditor_row .third h1,
+.TextEditor_row .third h2,
+.TextEditor_row .third h3,
+.TextEditor_row .third h4,
+.TextEditor_row .third span {
+    margin: 0;
+    padding: 0;
 }
 .TextEditor_row .first{
     width: 30px;

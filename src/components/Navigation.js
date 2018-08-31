@@ -29,7 +29,7 @@ class Navigation extends Component {
     
     fileName(){
         if(this.fileInput.current != null){
-            if(this.fileInput.current.files.length == 0){
+            if(this.fileInput.current.files.length === 0){
                 return "testing file"
             }else{
                 return this.fileInput.current.files[0].name
@@ -73,6 +73,12 @@ class Navigation extends Component {
                     onClick={this.loadData}
                     >
                     Upload file data
+                </label>
+                <label 
+                    className="nav_el nav_input"
+                    onClick={this.props.downloadJson}
+                    >
+                    Download Json
                 </label>
             </div>
         );

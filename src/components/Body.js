@@ -109,13 +109,13 @@ class Rows extends Component {
     }
     goToEdition(event){
         event.preventDefault();
-        const info = {
+        const data = {
             positionInArray: this.props.positionInArray,
             key: this.props.dataToDisplay.key,
             orginal: this.props.dataToDisplay.orginal,
             value: this.props.dataToDisplay.value
         }
-        this.props.updater.rowInfo(info);
+        this.props.updater.updateRow(data);
         this.props.updater.panel();
     }
 }

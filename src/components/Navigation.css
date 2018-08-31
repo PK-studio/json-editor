@@ -9,8 +9,7 @@
     border-bottom: 2px solid #908E8E;
 }
 .navigation .nav_el{
-    margin: 11px 0;
-    border-radius: 10px;
+    margin: 11px 0px 11px 20px;
 }
 .navigation input{
     display: none;
@@ -18,15 +17,13 @@
 .nav_input {
     padding: 10px;
     background: #C5B8E3; 
-    border-radius: 10px 0 0 10px;
     display: table;
     color: #000000;
 }
 .nav_test {
-    margin: 11px 30px 11px 0;
+    margin: 11px 0;
     padding: 10px;
     background: #b3b3b3; 
-    border-radius: 10px;
     display: table;
     color: #fff;
 }
@@ -36,9 +33,8 @@
 }
 .nav_fileName {
     padding: 7px 10px;
-    margin: 11px 30px 11px 0;
+    margin: 11px 0;
     border: 3px #C5B8E3 solid;
-    border-radius: 0 10px 10px 0;
 }
 .nav_input:hover{
     background: #9D83FB;

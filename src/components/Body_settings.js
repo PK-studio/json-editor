@@ -22,22 +22,25 @@ const ignoreTypes = [
         "number"
 ];
 const unwantedCharacters = [
-        {
-            expresion: '&nbsp;', 
-            newCharacter: ' '
-        },
-        {
-            expresion: '\\n', 
-            newCharacter: ' '
-        },
+    {
+        expresion: '&nbsp;', 
+        newCharacter: ' '
+    },
+    {
+        expresion: '\\n', 
+        newCharacter: ' '
+    },
 ];
 
 const tags = [
     /<img[^>]+>/g,
     /<span>[^>]+<\/span>/g
-]
+];
 
-const checkhtml = [/<p>/g, /<h\d>/g];
+const checkhtml = [
+    /<p>/g, 
+    /<h\d>/g
+];
 
 
 

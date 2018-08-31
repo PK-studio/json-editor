@@ -3,7 +3,7 @@ import settings from './Body_settings';
 function filterConstructor (){
     let tagsStorage = [];
    
-    function contentReplacer(match) {       
+    function contentReplacer(match) {
         let iNum = tagsStorage.length - 1;
         if(iNum < 10) {
             iNum = "0" + iNum;
@@ -11,8 +11,7 @@ function filterConstructor (){
         return "[iconIsHere_" + iNum + "]";
     }
 
-    // todo: change to replaceIconWithTags
-    this.pullOutIcons = function(content) {        
+    this.replaceIconWithTags = function(content) {        
         settings.tags.forEach((pattern) => {
             content = content.replace(new RegExp(pattern), (match) => {
                 tagsStorage.push(match);

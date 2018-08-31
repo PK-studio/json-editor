@@ -29,7 +29,9 @@ class WorkPanel extends Component {
         return (
             <div className="overlayer" onClick={this.closePanel}>
                 <div className="panel">
-                    <ControlledEditor rowData={this.props.rowData} updater={{rowInfo: this.props.updater.rowInfo}}/>
+                    <div className="panel_padding">
+                        <ControlledEditor rowData={this.props.rowData} updater={{updateRow: this.props.updater.updateRow}}/>
+                    </div>
                 </div>
             </div>
         );
@@ -47,12 +49,13 @@ class ControlledEditor extends Component {
       this.state = {
         editorState: EditorState.createWithContent(contentState)
       };
+      this.onEditorStateChange = this.onEditorStateChange.bind(this);
     }
 
-    onEditorStateChange: Function = (editorState) => {
+    onEditorStateChange(editorState){
         const newRowData = this.props.rowData;
         newRowData.value = draftToHtml(convertToRaw(editorState.getCurrentContent()));
-        this.props.updater.rowInfo(newRowData)
+        this.props.updater.updateRow(newRowData)
 
         this.setState({
             editorState
