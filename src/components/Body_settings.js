@@ -21,16 +21,13 @@ const ignoreTypes = [
         "boolean", 
         "number"
 ];
-const unwantedCharacters = [
-    {
-        expresion: '&nbsp;', 
-        newCharacter: ' '
-    },
-    {
-        expresion: '\\n', 
-        newCharacter: ' '
-    },
-];
+
+const iconReplacer = {
+    start: "[iconIsHere_",
+    end: "]",
+    regexp: /\[iconIsHere\_\d*\]/g,
+    offset: 15
+}
 
 const tags = [
     /<img[^>]+>/g,
@@ -38,10 +35,10 @@ const tags = [
 ];
 
 const checkhtml = [
-    /<p>/g, 
-    /<h\d>/g
+    "<p>", 
+    "<h"
 ];
 
 
 
-export default {ignoreDataProperties, ignoreTypes, unwantedCharacters, tags, checkhtml};
+export default {ignoreDataProperties, ignoreTypes, iconReplacer, tags, checkhtml};

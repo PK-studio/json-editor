@@ -4,10 +4,9 @@ import filter from './Body_filter';
 function saveJson(jsonInArray){
     console.log("save")
     jsonInArray.forEach(function(object){
-        const ref_key = object.key().substring(1).replace(/\./g, " ").replace(/\]/g, "").replace(/\[/g, " ").split(" ")
-        const stringCheckout = filter.removeUnwantedHtmlTags(object.orginal, object.value())
-        const textCheckout = filter.replaceUnwantedCharacters(stringCheckout)
-        const newValue = filter.getBackIcons(textCheckout)
+        let ref_key = object.key.substring(1).replace(/\./g, " ").replace(/\]/g, "").replace(/\[/g, " ").split(" ")
+        let stringCheckout = filter.removeHtmlTagsIfOrginalStringDoesntHave(object.orginal, object.value)
+        let newValue = filter.getBackIcons(stringCheckout)
         
         find_property(jsonInArray)
         

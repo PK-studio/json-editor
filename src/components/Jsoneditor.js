@@ -31,14 +31,14 @@ class Jsoneditor extends Component {
   };
 
   downloadJson(){
-    console.log("download")
-    const jsonInArrey = this.props.jsonInArrey;
+    let jsonInArrey = this.state.jsonInArrey;
+    console.log(jsonInArrey)
     if(!jsonInArrey) return;
-    const newJson = saveJson(jsonInArrey);
-    // const dataStr = "data:text/json;charset=utf-8," + JSON.stringify(newJson);
+    let newObj = saveJson(jsonInArrey);
+    // const newFile = "data:text/json;charset=utf-8," + JSON.stringify(newObj);
     // const fileName =  "new_file.json";
-    // const dlAnchorElem = document.getElementById('downloadAnchorElem');
-    // dlAnchorElem.setAttribute("href",     dataStr );
+    // const dlAnchorElem = document.createElement("a");
+    // dlAnchorElem.setAttribute("href",     newFile );
     // dlAnchorElem.setAttribute("download", fileName);
     // dlAnchorElem.click();
   }
