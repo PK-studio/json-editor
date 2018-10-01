@@ -31,23 +31,21 @@ class Jsoneditor extends Component {
   };
 
   downloadJson(){
-    let jsonInArrey = this.state.jsonInArrey;
-    console.log(jsonInArrey)
-    if(!jsonInArrey) return;
-    let newObj = saveJson(jsonInArrey);
-    // const newFile = "data:text/json;charset=utf-8," + JSON.stringify(newObj);
-    // const fileName =  "new_file.json";
-    // const dlAnchorElem = document.createElement("a");
-    // dlAnchorElem.setAttribute("href",     newFile );
-    // dlAnchorElem.setAttribute("download", fileName);
-    // dlAnchorElem.click();
+    if(!this.state.jsonInArrey) return;
+    let newObj = saveJson(this.state.jsonInArrey, this.state.oldJSON);
+    const newFile = "data:text/json;charset=utf-8," + JSON.stringify(newObj);
+    const fileName =  "new_file.json";
+    const dlAnchorElem = document.createElement("a");
+    dlAnchorElem.setAttribute("href",     newFile );
+    dlAnchorElem.setAttribute("download", fileName);
+    dlAnchorElem.click();
   }
 
   updateRow(data){
     this.rowDataToEdition = data;
     let rowNumber = data.positionInArray;
     let rowNewValue = data.value;
-    const arreyReplacer = this.state.jsonInArrey;
+    let arreyReplacer = this.state.jsonInArrey;
     arreyReplacer[rowNumber].value = rowNewValue;
     this.setState({jsonInArrey: arreyReplacer});
   }
